@@ -178,6 +178,25 @@
   }
   .telefone-destaque:hover { background: var(--amarelo-escuro); transform: scale(1.02); }
   .telefone-destaque svg { width: 28px; height: 28px; flex-shrink: 0; }
+  .btn-revelar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    background: var(--amarelo);
+    color: var(--preto);
+    border: none;
+    border-radius: 6px;
+    padding: 1rem 1.5rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-revelar:hover { background: var(--amarelo-escuro); transform: scale(1.02); }
   .aviso-ligacao {
     margin-top: 0.6rem;
     font-size: 0.8rem;
@@ -307,14 +326,23 @@
       </select>
 
       <div class="resultado" id="resultado">
-        <p class="resultado-label">Ligue agora para</p>
-        <a class="telefone-destaque" id="link-telefone" href="#">
+        <button class="btn-revelar" id="btn-revelar" onclick="revelarTelefone()">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" width="22" height="22">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+          </svg>
+          CLIQUE AQUI PARA VER O TELEFONE
+        </button>
+        <a class="telefone-destaque" id="link-telefone" href="#" style="display:none">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
           </svg>
           <span id="numero-display">(00) 00000-0000</span>
         </a>
         <p class="aviso-ligacao">&#128222; Ligação telefônica — não é WhatsApp</p>
+        <div id="msg-agradecimento" style="display:none; margin-top: 1rem; background: #1a2a1a; border: 1px solid #2a4a2a; border-radius: 6px; padding: 1rem 1.25rem; text-align: left;">
+          <p style="color: #7ec87e; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem;">&#10003; Obrigado pelo seu interesse!</p>
+          <p style="color: #aaa; font-size: 0.88rem; margin: 0;">Nossa página está sendo aprimorada para oferecer um atendimento ainda melhor. Em breve você encontrará aqui tudo que precisa para alugar sua caçamba de forma rápida e fácil.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -383,19 +411,44 @@
     'volta-redonda': { numero: '(24) 99999-0002', href: 'tel:+5524999990002' }
   };
 
+  let cidadeAtual = '';
+
   function mostrarTelefone() {
     const sel = document.getElementById('cidade-select').value;
     const resultado = document.getElementById('resultado');
-    const display = document.getElementById('numero-display');
     const link = document.getElementById('link-telefone');
+    const btn = document.getElementById('btn-revelar');
+
+    cidadeAtual = sel;
 
     if (sel && telefones[sel]) {
-      display.textContent = telefones[sel].numero;
-      link.href = telefones[sel].href;
+      link.style.display = 'none';
+      btn.style.display = 'flex';
       resultado.classList.add('visivel');
     } else {
       resultado.classList.remove('visivel');
     }
+  }
+
+  function revelarTelefone() {
+    if (!cidadeAtual || !telefones[cidadeAtual]) return;
+
+    // Registra o clique no localStorage
+    const chave = 'cliques_' + cidadeAtual;
+    const atual = parseInt(localStorage.getItem(chave) || '0');
+    localStorage.setItem(chave, atual + 1);
+
+    // Registra timestamp do último clique
+    const log = JSON.parse(localStorage.getItem('log_cliques') || '[]');
+    log.push({ cidade: cidadeAtual, data: new Date().toISOString() });
+    localStorage.setItem('log_cliques', JSON.stringify(log));
+
+    // Esconde botão e mostra só a mensagem
+    const btn = document.getElementById('btn-revelar');
+    const msg = document.getElementById('msg-agradecimento');
+
+    btn.style.display = 'none';
+    msg.style.display = 'block';
   }
 </script>
 
