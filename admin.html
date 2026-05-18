@@ -144,7 +144,10 @@
     font-weight: 600;
   }
   .badge-niteroi { background: #1a3a5c; color: #7eb8f7; }
-  .badge-volta { background: #3a1a1a; color: #f78c7e; }
+  .badge-volta-redonda { background: #3a1a1a; color: #f78c7e; }
+  .badge-barra-mansa { background: #1a3a1a; color: #7ef7a0; }
+  .badge-resende { background: #3a2a1a; color: #f7c87e; }
+  .badge-nova-friburgo { background: #2a1a3a; color: #c87ef7; }
 
   .btn-limpar {
     margin-top: 1.5rem;
@@ -200,7 +203,10 @@
 
   const CIDADES = {
     'niteroi': 'Niterói',
-    'volta-redonda': 'Volta Redonda'
+    'volta-redonda': 'Volta Redonda',
+    'barra-mansa': 'Barra Mansa',
+    'resende': 'Resende',
+    'nova-friburgo': 'Nova Friburgo'
   };
 
   function entrar() {
@@ -264,7 +270,7 @@
     const logInvertido = [...log].reverse();
     let linhas = logInvertido.map((item, i) => {
       const cidade = CIDADES[item.cidade] || item.cidade;
-      const badge = item.cidade === 'niteroi' ? 'badge-niteroi' : 'badge-volta';
+      const badge = 'badge-' + item.cidade;
       const data = new Date(item.data).toLocaleString('pt-BR');
       return `<tr>
         <td>${logInvertido.length - i}</td>
