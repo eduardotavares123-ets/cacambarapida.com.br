@@ -116,6 +116,25 @@
   }
   .telefone-destaque:hover { background: var(--amarelo-escuro); transform: scale(1.02); }
   .telefone-destaque svg { width: 30px; height: 30px; flex-shrink: 0; }
+  .btn-revelar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    background: var(--amarelo);
+    color: var(--preto);
+    border: none;
+    border-radius: 6px;
+    padding: 1rem 1.5rem;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 900;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-revelar:hover { background: var(--amarelo-escuro); transform: scale(1.02); }
   .aviso-ligacao {
     margin-top: 0.75rem;
     font-size: 0.85rem;
@@ -184,48 +203,20 @@
     <span class="hero-eyebrow">Volta Redonda — RJ</span>
     <h1>Caçamba de <em>Entulho</em><br>em Volta Redonda</h1>
     <p>Ligue agora e fale diretamente com a empresa de caçamba que atende Volta Redonda.</p>
-    <div class="cta-box">
-      <a class="telefone-destaque" href="tel:+5524999990002">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <div class="cta-box">
+      <button class="btn-revelar" id="btn-revelar" onclick="revelarTelefone()">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" width="22" height="22">
           <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
         </svg>
-        (24) 99999-0002
-      </a>
+        CLIQUE AQUI PARA VER O TELEFONE
+      </button>
+      <div id="msg-agradecimento" style="display:none; margin-top: 1rem; background: #1a2a1a; border: 1px solid #2a4a2a; border-radius: 6px; padding: 1rem 1.25rem; text-align: left;">
+        <p style="color: #7ec87e; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem;">&#10003; Obrigado pelo seu interesse!</p>
+        <p style="color: #aaa; font-size: 0.88rem; margin: 0;">Nossa página está sendo aprimorada para oferecer um atendimento ainda melhor. Em breve você encontrará aqui tudo que precisa para alugar sua caçamba de forma rápida e fácil.</p>
+      </div>
       <p class="aviso-ligacao">&#128222; Ligação telefônica — não é WhatsApp</p>
     </div>
-  </section>
-
-  <hr class="divisor">
-
-  <section class="section">
-    <h2>Aluguel de caçamba em <em>Volta Redonda</em></h2>
-    <p>Precisa de uma caçamba de entulho em Volta Redonda? Para reforma, construção ou limpeza de terreno, é simples: ligue para o número acima e combine tudo pelo telefone — tamanho, prazo e endereço de entrega.</p>
-    <p>Atendemos os principais bairros de Volta Redonda, incluindo Aterrado, Vila Santa Cecília, Retiro, Laranjal, Jardim Paraíba, Conforto, Belo Horizonte e região.</p>
-    <p>A caçamba é entregue no endereço indicado e retirada assim que você terminar. Sem burocracia.</p>
-  </section>
-
-  <hr class="divisor">
-
-  <section class="section">
-    <h2>Perguntas <em>frequentes</em></h2>
-    <div class="faq">
-      <div class="faq-item">
-        <h3>Quais tamanhos de caçamba estão disponíveis em Volta Redonda?</h3>
-        <p>Os tamanhos mais comuns são 3m³, 4m³ e 5m³. Confirme a disponibilidade e o preço pelo telefone no momento do pedido.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Qual o prazo de entrega em Volta Redonda?</h3>
-        <p>Em geral a entrega é feita no mesmo dia ou no dia seguinte, dependendo da disponibilidade. Ligue cedo para garantir o horário que preferir.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Posso colocar qualquer tipo de material na caçamba?</h3>
-        <p>Entulho de obra, tijolos, concreto, madeira e terra são aceitos. Materiais tóxicos, eletrônicos e resíduos orgânicos em geral não são permitidos. Confirme com a empresa no momento do pedido.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Preciso de alguma autorização para colocar a caçamba na rua em Volta Redonda?</h3>
-        <p>Pode ser necessária autorização da prefeitura para caçambas na via pública. A empresa parceira pode orientar sobre o processo no momento do pedido.</p>
-      </div>
-    </div>
+    
   </section>
 </main>
 
@@ -233,5 +224,18 @@
   <p>&copy; 2025 <strong>CaçambaRápida</strong> &mdash; Aluguel de caçamba de entulho em Volta Redonda e em todo o Brasil.</p>
 </footer>
 
+
+<script>
+  function revelarTelefone() {
+    const chave = 'cliques_volta-redonda';
+    const atual = parseInt(localStorage.getItem(chave) || '0');
+    localStorage.setItem(chave, atual + 1);
+    const log = JSON.parse(localStorage.getItem('log_cliques') || '[]');
+    log.push({ cidade: 'volta-redonda', data: new Date().toISOString() });
+    localStorage.setItem('log_cliques', JSON.stringify(log));
+    document.getElementById('btn-revelar').style.display = 'none';
+    document.getElementById('msg-agradecimento').style.display = 'block';
+  }
+</script>
 </body>
 </html>

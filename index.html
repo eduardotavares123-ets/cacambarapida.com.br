@@ -431,8 +431,11 @@
 
 <script>
   const telefones = {
-    'niteroi': { numero: '(21) 99999-0001', href: 'tel:+5521999990001' },
-    'volta-redonda': { numero: '(24) 99999-0002', href: 'tel:+5524999990002' }
+    'niteroi': true,
+    'volta-redonda': true,
+    'barra-mansa': true,
+    'resende': true,
+    'nova-friburgo': true
   };
 
   let cidadeAtual = '';
@@ -442,12 +445,14 @@
     const resultado = document.getElementById('resultado');
     const link = document.getElementById('link-telefone');
     const btn = document.getElementById('btn-revelar');
+    const msg = document.getElementById('msg-agradecimento');
 
     cidadeAtual = sel;
 
     if (sel && telefones[sel]) {
       link.style.display = 'none';
       btn.style.display = 'flex';
+      msg.style.display = 'none';
       resultado.classList.add('visivel');
     } else {
       resultado.classList.remove('visivel');
@@ -455,7 +460,7 @@
   }
 
   function revelarTelefone() {
-    if (!cidadeAtual || !telefones[cidadeAtual]) return;
+    if (!cidadeAtual) return;
 
     // Registra o clique no localStorage
     const chave = 'cliques_' + cidadeAtual;
