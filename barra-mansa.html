@@ -6,213 +6,60 @@
 <title>Aluguel de Caçamba de Entulho em Barra Mansa | Caçamba Rápida</title>
 <meta name="description" content="Aluguel de caçamba de entulho em Barra Mansa RJ. Ligue agora e receba sua caçamba hoje. Atendimento rápido e preço justo.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www.cacambarapida.com.br/barra-mansa">
+<link rel="canonical" href="https://www.cacambarapida.com.br/barra-mansa.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --amarelo: #F5C400;
-    --amarelo-escuro: #D4A800;
-    --preto: #111111;
-    --cinza-escuro: #1E1E1E;
-    --cinza-medio: #2E2E2E;
-    --cinza-claro: #F5F5F3;
-    --branco: #FFFFFF;
-    --texto-muted: #888;
+    --amarelo: #F5C400; --amarelo-escuro: #D4A800; --preto: #111111;
+    --cinza-escuro: #1E1E1E; --branco: #FFFFFF; --texto-muted: #888;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Barlow', sans-serif;
-    background: var(--preto);
-    color: var(--branco);
-    font-size: 16px;
-    line-height: 1.6;
-  }
-  header {
-    background: var(--preto);
-    border-bottom: 2px solid var(--amarelo);
-    padding: 0 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 64px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .logo {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900;
-    font-size: 1.5rem;
-    color: var(--amarelo);
-    text-decoration: none;
-  }
+  body { font-family: 'Barlow', sans-serif; background: var(--preto); color: var(--branco); font-size: 16px; line-height: 1.6; }
+  header { background: var(--preto); border-bottom: 2px solid var(--amarelo); padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
+  .logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.5rem; color: var(--amarelo); text-decoration: none; }
   .logo span { color: var(--branco); }
-  nav a {
-    color: var(--branco);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    margin-left: 1.5rem;
-  }
+  nav a { color: var(--branco); text-decoration: none; font-size: 0.9rem; font-weight: 500; margin-left: 1.5rem; }
   nav a:hover { color: var(--amarelo); }
-
-  .hero {
-    background: var(--cinza-escuro);
-    padding: 3.5rem 1.5rem 3rem;
-    text-align: center;
-  }
-  .breadcrumb {
-    font-size: 0.8rem;
-    color: var(--texto-muted);
-    margin-bottom: 1rem;
-  }
+  .hero { background: var(--cinza-escuro); padding: 3.5rem 1.5rem 3rem; text-align: center; }
+  .breadcrumb { font-size: 0.8rem; color: var(--texto-muted); margin-bottom: 1rem; }
   .breadcrumb a { color: var(--amarelo); text-decoration: none; }
-  .hero-eyebrow {
-    display: inline-block;
-    background: var(--amarelo);
-    color: var(--preto);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 4px 14px;
-    border-radius: 2px;
-    margin-bottom: 1.25rem;
-  }
-  h1 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900;
-    font-size: clamp(2.4rem, 7vw, 4rem);
-    line-height: 1.05;
-    text-transform: uppercase;
-    letter-spacing: -0.5px;
-    margin-bottom: 1rem;
-  }
+  .hero-eyebrow { display: inline-block; background: var(--amarelo); color: var(--preto); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 14px; border-radius: 2px; margin-bottom: 1.25rem; }
+  h1 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(2.2rem, 6vw, 3.8rem); line-height: 1.05; text-transform: uppercase; letter-spacing: -0.5px; margin-bottom: 1rem; }
   h1 em { color: var(--amarelo); font-style: normal; }
-  .hero p {
-    font-size: 1.05rem;
-    color: #ccc;
-    max-width: 500px;
-    margin: 0 auto 2rem;
-  }
-
-  .cta-box {
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  .telefone-destaque {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    background: var(--amarelo);
-    color: var(--preto);
-    border-radius: 6px;
-    padding: 1.1rem 1.5rem;
-    text-decoration: none;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900;
-    font-size: 2.2rem;
-    letter-spacing: 1px;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .telefone-destaque:hover { background: var(--amarelo-escuro); transform: scale(1.02); }
-  .telefone-destaque svg { width: 30px; height: 30px; flex-shrink: 0; }
-  .btn-revelar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    width: 100%;
-    background: var(--amarelo);
-    color: var(--preto);
-    border: none;
-    border-radius: 6px;
-    padding: 1rem 1.5rem;
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: 900;
-    font-size: 1.3rem;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-  }
+  .hero p { font-size: 1.05rem; color: #ccc; max-width: 500px; margin: 0 auto 2rem; }
+  .cta-box { max-width: 400px; margin: 0 auto; }
+  .btn-revelar { display: flex; align-items: center; justify-content: center; gap: 0.75rem; width: 100%; background: var(--amarelo); color: var(--preto); border: none; border-radius: 6px; padding: 1rem 1.5rem; font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.3rem; letter-spacing: 1px; cursor: pointer; transition: background 0.2s, transform 0.15s; }
   .btn-revelar:hover { background: var(--amarelo-escuro); transform: scale(1.02); }
-  .aviso-ligacao {
-    margin-top: 0.75rem;
-    font-size: 0.85rem;
-    color: var(--texto-muted);
-    text-align: center;
-  }
-
-  .section {
-    padding: 3.5rem 1.5rem;
-    max-width: 860px;
-    margin: 0 auto;
-  }
-  h2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900;
-    font-size: clamp(1.6rem, 4vw, 2.4rem);
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-  }
+  .aviso-ligacao { margin-top: 0.75rem; font-size: 0.85rem; color: var(--texto-muted); text-align: center; }
+  .section { padding: 3.5rem 1.5rem; max-width: 860px; margin: 0 auto; }
+  h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(1.6rem, 4vw, 2.4rem); text-transform: uppercase; margin-bottom: 1rem; }
   h2 em { color: var(--amarelo); font-style: normal; }
   p { color: #ccc; margin-bottom: 1rem; }
   p:last-child { margin-bottom: 0; }
-
   .faq { margin-top: 1.5rem; }
-  .faq-item {
-    background: var(--cinza-escuro);
-    border: 1px solid #2a2a2a;
-    border-radius: 8px;
-    padding: 1.25rem 1.5rem;
-    margin-bottom: 0.75rem;
-  }
-  .faq-item h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--amarelo);
-    margin-bottom: 0.5rem;
-  }
+  .faq-item { background: var(--cinza-escuro); border: 1px solid #2a2a2a; border-radius: 8px; padding: 1.25rem 1.5rem; margin-bottom: 0.75rem; }
+  .faq-item h3 { font-size: 1rem; font-weight: 600; color: var(--amarelo); margin-bottom: 0.5rem; }
   .faq-item p { font-size: 0.95rem; margin: 0; }
-
   .divisor { border: none; border-top: 1px solid #2a2a2a; }
-
-  footer {
-    background: var(--cinza-escuro);
-    border-top: 1px solid #2a2a2a;
-    padding: 2rem 1.5rem;
-    text-align: center;
-    color: var(--texto-muted);
-    font-size: 0.85rem;
-  }
+  footer { background: var(--cinza-escuro); border-top: 1px solid #2a2a2a; padding: 2rem 1.5rem; text-align: center; color: var(--texto-muted); font-size: 0.85rem; }
   footer strong { color: var(--amarelo); }
-
-  @media (max-width: 600px) {
-    nav { display: none; }
-    .telefone-destaque { font-size: 1.7rem; }
-  }
+  @media (max-width: 600px) { nav { display: none; } .btn-revelar { font-size: 1.1rem; } }
 </style>
 </head>
 <body>
-
 <header>
   <a href="index.html" class="logo">Caçamba<span>Rápida</span></a>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="index.html#cidades">Outras cidades</a>
-  </nav>
+  <nav><a href="index.html">Início</a><a href="index.html#cidades">Outras cidades</a></nav>
 </header>
-
 <main>
   <section class="hero">
     <p class="breadcrumb"><a href="index.html">Início</a> &rsaquo; Barra Mansa</p>
     <span class="hero-eyebrow">Barra Mansa — RJ</span>
     <h1>Caçamba de <em>Entulho</em><br>em Barra Mansa</h1>
     <p>Ligue agora e fale diretamente com a empresa de caçamba que atende Barra Mansa.</p>
-        <div class="cta-box">
+    <div class="cta-box">
       <button class="btn-revelar" id="btn-revelar" onclick="revelarTelefone()">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" width="22" height="22">
           <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
@@ -225,15 +72,40 @@
       </div>
       <p class="aviso-ligacao">&#128222; Ligação telefônica — não é WhatsApp</p>
     </div>
-    
+  </section>
+  <hr class="divisor">
+  <section class="section">
+    <h2>Aluguel de caçamba em <em>Barra Mansa</em></h2>
+    <p>Precisa de uma caçamba de entulho em Barra Mansa? Seja para reforma, construção ou limpeza de terreno, o processo é simples: clique no botão acima e em breve você terá o contato direto com a empresa parceira da sua região.</p>
+    <p>Atendemos os principais bairros de Barra Mansa, incluindo Centro, Ano Bom, Santa Rosa, Coreia, Chatuba, Cosmorama, Jacaré, Vista Alegre e região.</p>
+    <p>A caçamba é entregue no endereço indicado e retirada assim que você terminar. Sem burocracia.</p>
+  </section>
+  <hr class="divisor">
+  <section class="section">
+    <h2>Perguntas <em>frequentes</em></h2>
+    <div class="faq">
+      <div class="faq-item">
+        <h3>Quais tamanhos de caçamba estão disponíveis em Barra Mansa?</h3>
+        <p>Os tamanhos mais comuns são 3m³, 4m³ e 5m³. Confirme a disponibilidade e o preço no momento do pedido.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Qual o prazo de entrega em Barra Mansa?</h3>
+        <p>Em geral a entrega é feita no mesmo dia ou no dia seguinte, dependendo da disponibilidade. Entre em contato cedo para garantir o horário que preferir.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Posso colocar qualquer tipo de material na caçamba?</h3>
+        <p>Entulho de obra, tijolos, concreto, madeira e terra são aceitos. Materiais tóxicos, eletrônicos e resíduos orgânicos em geral não são permitidos.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Preciso de autorização para colocar a caçamba na rua em Barra Mansa?</h3>
+        <p>Em Barra Mansa pode ser necessária autorização da prefeitura para caçambas na via pública. A empresa parceira pode orientar sobre o processo.</p>
+      </div>
+    </div>
   </section>
 </main>
-
 <footer>
   <p>&copy; 2025 <strong>CaçambaRápida</strong> &mdash; Aluguel de caçamba de entulho em Barra Mansa e em todo o Brasil.</p>
 </footer>
-
-
 <script>
   function revelarTelefone() {
     const chave = 'cliques_barra-mansa';
