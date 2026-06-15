@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caçamba Rápida — Concepção de Produto</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #D85A30;
+    --orange-light: #FAECE7;
+    --orange-mid: #F0997B;
+    --orange-dark: #4A1B0C;
+    --stone: #2C2C2A;
+    --stone-mid: #5F5E5A;
+    --stone-light: #F1EFE8;
+    --stone-border: #D3D1C7;
+    --teal: #0F6E56;
+    --teal-light: #E1F5EE;
+    --amber: #BA7517;
+    --amber-light: #FAEEDA;
+    --white: #FFFFFF;
+    --page-bg: #F7F5F0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--page-bg);
+    color: var(--stone);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* HEADER */
+  .hero {
+    background: var(--stone);
+    color: var(--white);
+    padding: 64px 48px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    border: 2px solid rgba(216,90,48,0.25);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; right: 80px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    border: 1px solid rgba(216,90,48,0.15);
+  }
+  .hero-tag {
+    display: inline-block;
+    background: var(--orange);
+    color: var(--white);
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 16px;
+    max-width: 600px;
+  }
+  .hero h1 span { color: var(--orange-mid); }
+  .hero-meta {
+    display: flex;
+    gap: 32px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+  }
+  .hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .hero-meta-item .label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    font-weight: 500;
+  }
+  .hero-meta-item .value {
+    font-family: 'Syne', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  /* LAYOUT */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 48px; }
+
+  /* SECTION TITLES */
+  .section {
+    padding: 56px 0 48px;
+    border-bottom: 1px solid var(--stone-border);
+  }
+  .section:last-child { border-bottom: none; }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .section-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--orange);
+  }
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--stone);
+  }
+
+  /* PROMESSA */
+  .promessa-card {
+    background: var(--stone);
+    color: var(--white);
+    border-radius: 4px;
+    padding: 40px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .promessa-card::before {
+    content: '"';
+    position: absolute;
+    top: -20px; left: 32px;
+    font-family: 'Syne', sans-serif;
+    font-size: 160px;
+    font-weight: 800;
+    color: rgba(216,90,48,0.15);
+    line-height: 1;
+  }
+  .promessa-card p {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.3;
+    position: relative;
+    z-index: 1;
+  }
+  .promessa-card p span { color: var(--orange-mid); }
+
+  /* BENEFÍCIOS */
+  .beneficios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .beneficio-cat {
+    background: var(--white);
+    border: 1px solid var(--stone-border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .beneficio-cat-header {
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--stone-border);
+  }
+  .beneficio-cat-header .icon {
+    width: 28px; height: 28px;
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .cat-financeiro .icon { background: var(--teal-light); color: var(--teal); }
+  .cat-tempo .icon { background: var(--amber-light); color: var(--amber); }
+  .cat-autoestima .icon { background: var(--orange-light); color: var(--orange); }
+  .cat-reputacao .icon { background: #E6F1FB; color: #185FA5; }
+  .cat-crescimento .icon { background: #EAF3DE; color: #3B6D11; }
+  .beneficio-cat-header h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--stone);
+  }
+  .beneficio-cat-header .count {
+    margin-left: auto;
+    font-size: 11px;
+    color: var(--stone-mid);
+    font-weight: 500;
+  }
+  .beneficio-list {
+    padding: 16px 20px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .beneficio-list li {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--stone);
+    padding-left: 16px;
+    position: relative;
+  }
+  .beneficio-list li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--stone-border);
+  }
+
+  /* BALDES */
+  .baldes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .balde-card {
+    background: var(--white);
+    border: 1px solid var(--stone-border);
+    border-radius: 4px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .balde-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+  }
+  .balde-nome {
+    font-family: 'Syne', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--stone);
+    line-height: 1.3;
+  }
+  .balde-desc {
+    font-size: 13px;
+    color: var(--stone-mid);
+    line-height: 1.6;
+  }
+  .balde-comms {
+    border-top: 1px solid var(--stone-border);
+    padding-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .balde-comms-label {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--stone-mid);
+    margin-bottom: 4px;
+  }
+  .balde-comms li {
+    list-style: none;
+    font-size: 12px;
+    color: var(--stone);
+    line-height: 1.5;
+    padding-left: 12px;
+    position: relative;
+  }
+  .balde-comms li::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: var(--orange);
+    font-size: 11px;
+  }
+
+  /* PERFIL */
+  .perfil-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .perfil-card {
+    background: var(--white);
+    border: 1px solid var(--stone-border);
+    border-radius: 4px;
+    padding: 24px;
+  }
+  .perfil-card.full { grid-column: 1 / -1; }
+  .perfil-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--stone-mid);
+    margin-bottom: 16px;
+  }
+  .perfil-avatar {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: var(--stone);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+  .perfil-stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .perfil-stat { display: flex; flex-direction: column; gap: 3px; }
+  .perfil-stat .label {
+    font-size: 11px;
+    color: var(--stone-mid);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+  }
+  .perfil-stat .val {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--stone);
+    line-height: 1.4;
+  }
+  .paliativo-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .paliativo-list li {
+    font-size: 13px;
+    color: var(--stone-mid);
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .paliativo-list li::before {
+    content: '✗';
+    position: absolute; left: 0;
+    color: #E24B4A;
+    font-size: 12px;
+    top: 1px;
+  }
+
+  /* OBJEÇÕES */
+  .objecao-block {
+    background: var(--white);
+    border: 1px solid var(--stone-border);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .objecao-header {
+    padding: 20px 24px;
+    background: var(--stone-light);
+    border-bottom: 1px solid var(--stone-border);
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .objecao-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--orange);
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .objecao-texto {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--stone);
+    line-height: 1.4;
+  }
+  .objecao-args {
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .arg-row {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--stone-border);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 20px;
+  }
+  .arg-row:last-child { border-bottom: none; }
+  .arg-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--orange);
+    padding-top: 2px;
+    line-height: 1.4;
+  }
+  .arg-content { display: flex; flex-direction: column; gap: 8px; }
+  .arg-content p { font-size: 13px; color: var(--stone-mid); line-height: 1.6; }
+
+  /* SONHO */
+  .sonho-card {
+    background: var(--teal);
+    border-radius: 4px;
+    padding: 40px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .sonho-card::before {
+    content: '"';
+    position: absolute;
+    top: -20px; left: 32px;
+    font-family: 'Syne', sans-serif;
+    font-size: 160px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.08);
+    line-height: 1;
+  }
+  .sonho-card p {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.55;
+    color: #E1F5EE;
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+  }
+
+  /* FRASES */
+  .frases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .frase-card {
+    background: var(--white);
+    border: 1px solid var(--stone-border);
+    border-radius: 4px;
+    padding: 20px 22px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .frase-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--stone-border);
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 2px;
+  }
+  .frase-card p {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--stone-mid);
+    line-height: 1.6;
+  }
+
+  /* COMUNICAÇÃO */
+  .comunicacao-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+  .comm-card {
+    background: var(--white);
+    border: 1px solid var(--stone-border);
+    border-radius: 4px;
+    padding: 22px;
+  }
+  .comm-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--stone-mid);
+    margin-bottom: 14px;
+  }
+  .comm-card p { font-size: 13px; color: var(--stone); line-height: 1.6; }
+  .word-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+  .pill {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 2px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  .pill-green { background: #EAF3DE; color: #3B6D11; }
+  .pill-red { background: #FCEBEB; color: #A32D2D; }
+
+  /* BONUS — destaque visual */
+  .bonus-section {
+    background: var(--stone);
+    color: var(--white);
+    padding: 56px 0;
+  }
+  .bonus-section .section-title { color: var(--white); }
+  .bonus-section .section-num { color: var(--orange-mid); }
+  .bonus-intro {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    max-width: 600px;
+    margin-bottom: 32px;
+    line-height: 1.7;
+  }
+  .bonus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .bonus-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+  }
+  .bonus-card.destaque {
+    border-color: var(--orange);
+    background: rgba(216,90,48,0.08);
+  }
+  .bonus-badge {
+    position: absolute;
+    top: -1px; right: 16px;
+    background: var(--orange);
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 0 0 3px 3px;
+  }
+  .bonus-icon {
+    width: 36px; height: 36px;
+    border-radius: 2px;
+    background: rgba(255,255,255,0.08);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .bonus-nome {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.3;
+  }
+  .bonus-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+  }
+  .bonus-valor {
+    margin-top: auto;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .bonus-valor .label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+  }
+  .bonus-valor .val {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--orange-mid);
+  }
+
+  /* ENTREGÁVEIS */
+  .entregaveis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .entregavel-card {
+    background: var(--white);
+    border: 1px solid var(--stone-border);
+    border-radius: 4px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .entregavel-tipo {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    background: var(--teal-light);
+    padding: 3px 10px;
+    border-radius: 2px;
+    display: inline-block;
+    width: fit-content;
+  }
+  .entregavel-nome {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--stone);
+    line-height: 1.3;
+  }
+  .entregavel-desc {
+    font-size: 13px;
+    color: var(--stone-mid);
+    line-height: 1.6;
+  }
+
+  /* RESUMO OFERTA */
+  .oferta-box {
+    background: var(--orange);
+    border-radius: 4px;
+    padding: 40px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .oferta-box h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .oferta-box p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    max-width: 400px;
+    line-height: 1.6;
+  }
+  .oferta-preco {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+  .oferta-preco .label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+  }
+  .oferta-preco .valor {
+    font-family: 'Syne', sans-serif;
+    font-size: 44px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+  }
+  .oferta-preco .periodo {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  @media (max-width: 700px) {
+    .hero { padding: 40px 24px; }
+    .hero h1 { font-size: 34px; }
+    .container { padding: 0 24px; }
+    .perfil-grid { grid-template-columns: 1fr; }
+    .comunicacao-grid { grid-template-columns: 1fr; }
+    .arg-row { grid-template-columns: 1fr; gap: 6px; }
+    .promessa-card, .sonho-card, .oferta-box { padding: 28px 24px; }
+    .bonus-section .container { padding: 0 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Concepção de Produto</div>
+  <h1>Caçamba <span>Rápida</span></h1>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <span class="label">Nicho</span>
+      <span class="value">Caçambas de obra</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="label">Formato</span>
+      <span class="value">Site de intermediação + ligações</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="label">Mensalidade</span>
+      <span class="value">R$ 400 / mês</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="label">Data</span>
+      <span class="value">28/05/2025</span>
+    </div>
+  </div>
+</div>
+
+<!-- PROMESSA -->
+<div class="container">
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Promessa</h2>
+    </div>
+    <div class="promessa-card">
+      <p>Receber ligações de clientes prontos para <span>alugar caçamba</span></p>
+    </div>
+  </div>
+
+  <!-- BENEFÍCIOS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Benefícios — 50 resultados</h2>
+    </div>
+    <div class="beneficios-grid">
+
+      <div class="beneficio-cat cat-financeiro">
+        <div class="beneficio-cat-header">
+          <div class="icon">💰</div>
+          <h3>Financeiro</h3>
+          <span class="count">10 itens</span>
+        </div>
+        <ul class="beneficio-list">
+          <li>Receita previsível todo mês com custo fixo baixo</li>
+          <li>Retorno do investimento já no primeiro pedido fechado</li>
+          <li>Faturamento extra sem contratar vendedor</li>
+          <li>Redução do custo por cliente adquirido</li>
+          <li>Mais pedidos sem aumentar frota parada</li>
+          <li>Receita nova sem depender de indicação</li>
+          <li>Custo de aquisição de cliente calculável e controlado</li>
+          <li>Margem melhor por aproveitar caçambas ociosas</li>
+          <li>Fluxo de caixa mais estável ao longo do mês</li>
+          <li>Crescimento de faturamento sem aumentar estrutura</li>
+        </ul>
+      </div>
+
+      <div class="beneficio-cat cat-tempo">
+        <div class="beneficio-cat-header">
+          <div class="icon">⏱</div>
+          <h3>Tempo</h3>
+          <span class="count">10 itens</span>
+        </div>
+        <ul class="beneficio-list">
+          <li>Fim da prospecção manual por telefone ou porta a porta</li>
+          <li>Clientes chegam sem o dono precisar ir atrás</li>
+          <li>Menos tempo perdido com leads frios que não convertem</li>
+          <li>Agenda preenchida sem reuniões de vendas</li>
+          <li>Atendimento direto: o telefone toca com cliente pronto</li>
+          <li>Sem precisar gerenciar campanhas de anúncio</li>
+          <li>Processo de captação rodando enquanto o dono opera a empresa</li>
+          <li>Menos tempo gasto em cotações que não fecham</li>
+          <li>Rotina operacional sem interrupção por falta de pedido</li>
+          <li>Entrada de clientes novos sem ação semanal do dono</li>
+        </ul>
+      </div>
+
+      <div class="beneficio-cat cat-autoestima">
+        <div class="beneficio-cat-header">
+          <div class="icon">🧠</div>
+          <h3>Autoestima</h3>
+          <span class="count">10 itens</span>
+        </div>
+        <ul class="beneficio-list">
+          <li>Sensação de ter um canal de vendas profissional funcionando</li>
+          <li>Confiança para planejar crescimento com receita previsível</li>
+          <li>Fim da dependência de indicação de conhecidos</li>
+          <li>Orgulho de competir com empresas maiores no digital</li>
+          <li>Segurança para investir em mais caçambas com demanda garantida</li>
+          <li>Identidade de empresa moderna, não só operacional</li>
+          <li>Tranquilidade de saber que novos pedidos vão chegar</li>
+          <li>Sensação de controle sobre o crescimento do negócio</li>
+          <li>Fim da ansiedade de meses fracos sem perspectiva</li>
+          <li>Clareza sobre quanto custa e quanto rende cada cliente novo</li>
+        </ul>
+      </div>
+
+      <div class="beneficio-cat cat-reputacao">
+        <div class="beneficio-cat-header">
+          <div class="icon">⭐</div>
+          <h3>Reputação</h3>
+          <span class="count">10 itens</span>
+        </div>
+        <ul class="beneficio-list">
+          <li>Empresa vista como referência local no segmento</li>
+          <li>Mais avaliações positivas geradas pelo volume maior de atendimentos</li>
+          <li>Nome da empresa circulando entre quem está reformando ou construindo</li>
+          <li>Reconhecimento de clientes que pesquisam e encontram a empresa primeiro</li>
+          <li>Indicações espontâneas geradas pelos novos clientes atendidos</li>
+          <li>Posição de destaque frente a concorrentes sem presença digital</li>
+          <li>Autoridade regional consolidada por volume de atendimento</li>
+          <li>Relacionamento com construtoras e reformadoras que voltam sempre</li>
+          <li>Empresa percebida como maior do que é pela presença online</li>
+          <li>Reputação de empresa que atende rápido, porque o cliente já chega pelo canal certo</li>
+        </ul>
+      </div>
+
+      <div class="beneficio-cat cat-crescimento">
+        <div class="beneficio-cat-header">
+          <div class="icon">📈</div>
+          <h3>Crescimento</h3>
+          <span class="count">10 itens</span>
+        </div>
+        <ul class="beneficio-list">
+          <li>Base para escalar a frota com demanda validada</li>
+          <li>Dados de ligações para identificar os bairros com mais pedido</li>
+          <li>Histórico de clientes que facilita negociação com banco ou investidor</li>
+          <li>Processo replicável se abrir filial em outra cidade</li>
+          <li>Habilidade de entender o funil de vendas do próprio negócio</li>
+          <li>Abertura para atender construtoras e contratos recorrentes</li>
+          <li>Capacidade de ajustar preço com base em volume de demanda</li>
+          <li>Rede de contatos com clientes de obra que abrem outros serviços</li>
+          <li>Fundação digital que sustenta anúncios pagos no futuro</li>
+          <li>Modelo validado para expandir para outros tipos de serviço</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BALDES -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Baldes — para quem é</h2>
+    </div>
+    <div class="baldes-grid">
+
+      <div class="balde-card">
+        <span class="balde-num">Balde 01</span>
+        <div class="balde-nome">O Dono Operacional</div>
+        <div class="balde-desc">2 a 5 anos de mercado, fundado pelo próprio dono que ainda opera junto com a equipe. Todos os clientes vieram por indicação. Nunca investiu em marketing digital e não sabe por onde começar.</div>
+        <div class="balde-comms">
+          <div class="balde-comms-label">Como comunicar</div>
+          <ul>
+            <li>Foco em simplicidade: "você não precisa fazer nada, a ligação chega no seu telefone"</li>
+            <li>Usar linguagem de obra, não de marketing</li>
+            <li>Custo-benefício em pedidos: "um pedido já paga o mês"</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="balde-card">
+        <span class="balde-num">Balde 02</span>
+        <div class="balde-nome">O Dono que já tentou anúncio</div>
+        <div class="balde-desc">Rodou Google Ads ou impulsionou post, gastou dinheiro e não viu retorno. Desconfia de qualquer coisa digital. Precisa de argumento concreto que diferencie o modelo de lead por ligação.</div>
+        <div class="balde-comms">
+          <div class="balde-comms-label">Como comunicar</div>
+          <ul>
+            <li>Reconhecer a frustração anterior sem atacar o que ele fez</li>
+            <li>"Aqui você não paga por clique, paga por ligação de quem quer caçamba"</li>
+            <li>Provas concretas: número de ligações, exemplos reais</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="balde-card">
+        <span class="balde-num">Balde 03</span>
+        <div class="balde-nome">O Dono com Frota Ociosa</div>
+        <div class="balde-desc">Tem caçambas paradas em dias da semana ou períodos de baixa. O problema não é capacidade, é demanda. Aberto a pagar por clientes desde que o custo caiba na operação.</div>
+        <div class="balde-comms">
+          <div class="balde-comms-label">Como comunicar</div>
+          <ul>
+            <li>"Caçamba parada é dinheiro parado"</li>
+            <li>R$400 como custo fixo pequeno frente ao potencial de giro</li>
+            <li>Exemplos de volume: quantas ligações por mês em média</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="balde-card">
+        <span class="balde-num">Balde 04</span>
+        <div class="balde-nome">O Dono em Expansão</div>
+        <div class="balde-desc">5 ou mais anos, quer crescer de forma estruturada. Pensa em nova área de atuação, mais frota ou novos bairros. Busca canais que escalem com o negócio. Exige resultado mensurável.</div>
+        <div class="balde-comms">
+          <div class="balde-comms-label">Como comunicar</div>
+          <ul>
+            <li>Linguagem de parceria e crescimento conjunto</li>
+            <li>O modelo escala: mais bairros cobertos, mais ligações</li>
+            <li>Dados e métricas como argumento principal</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="balde-card">
+        <span class="balde-num">Balde 05</span>
+        <div class="balde-nome">O Dono Novo de Mercado</div>
+        <div class="balde-desc">Menos de 2 anos ou formalizando operação informal. Construindo a carteira do zero. Sem verba para campanha grande, mas precisa de fluxo de pedidos para manter a operação viva.</div>
+        <div class="balde-comms">
+          <div class="balde-comms-label">Como comunicar</div>
+          <ul>
+            <li>Validar que o canal foi feito para quem está crescendo</li>
+            <li>"R$400 é menos do que um dia de caçamba parada"</li>
+            <li>"Você começa a receber ligações na primeira semana"</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- IDENTIDADE DO CONSUMIDOR -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Identidade do consumidor</h2>
+    </div>
+
+    <div class="perfil-grid">
+      <div class="perfil-card">
+        <div class="perfil-avatar">CA</div>
+        <h3>Perfil demográfico — Carlos</h3>
+        <div class="perfil-stat-grid">
+          <div class="perfil-stat"><span class="label">Idade</span><span class="val">35 – 52 anos</span></div>
+          <div class="perfil-stat"><span class="label">Escolaridade</span><span class="val">Ensino médio ou técnico</span></div>
+          <div class="perfil-stat"><span class="label">Faturamento</span><span class="val">R$8k – R$40k/mês</span></div>
+          <div class="perfil-stat"><span class="label">Relação c/ digital</span><span class="val">WhatsApp Business, Instagram irregular</span></div>
+          <div class="perfil-stat" style="grid-column: 1/-1"><span class="label">Localização</span><span class="val">Regiões metropolitanas e cidades médias com mercado de obras ativo</span></div>
+          <div class="perfil-stat" style="grid-column: 1/-1"><span class="label">Decisão de compra</span><span class="val">Pragmática. Precisa ver resultado concreto ou ouvir de alguém de confiança. Fecha quando entende o custo-benefício em termos simples.</span></div>
+        </div>
+      </div>
+      <div class="perfil-card">
+        <h3>Paliativos que usa hoje</h3>
+        <ul class="paliativo-list">
+          <li>Pede indicação para clientes antigos de vez em quando</li>
+          <li>Coloca o número no carro ou na caçamba e espera ligar</li>
+          <li>Faz post no Instagram quando lembra</li>
+          <li>Está no grupo de WhatsApp de moradores e divulga lá</li>
+          <li>Já pagou panfleto ou busdoor sem medir resultado</li>
+          <li>Tem cadastro em sites de orçamento que nunca converteram</li>
+          <li>Conta com o volume natural de obras na região</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- OBJEÇÕES -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Objeções e argumentos de quebra</h2>
+    </div>
+
+    <div class="objecao-block">
+      <div class="objecao-header">
+        <div class="objecao-num">01</div>
+        <div class="objecao-texto">"R$400 por mês é caro para o que oferece"</div>
+      </div>
+      <div class="objecao-args">
+        <div class="arg-row"><div class="arg-label">Inversão de perspectiva</div><div class="arg-content"><p>R$400 é o custo de menos de um pedido de caçamba. Uma locação já cobre o mês inteiro e o canal continua gerando ligações nos outros 29 dias.</p><p>Quando o dono analisa quanto perde com caçambas ociosas, o valor muda de categoria. Não é despesa, é o menor custo fixo de captação que vai encontrar no mercado.</p></div></div>
+        <div class="arg-row"><div class="arg-label">Comparação com alternativa</div><div class="arg-content"><p>Google Ads para caçamba em região metropolitana custa R$800 a R$2.500 por mês só em verba. O resultado é clique, não ligação. Com a Caçamba Rápida, o investimento é fixo e o entregável é a ligação de quem já decidiu alugar.</p><p>Post impulsionado gera visualização. Visualização não é pedido. Ligação é pedido.</p></div></div>
+        <div class="arg-row"><div class="arg-label">Prova de mercado</div><div class="arg-content"><p>Portais de serviço cobram por lead: R$30, R$50 ou mais por contato, sem garantia de fechamento. A mensalidade fixa de R$400 torna o custo por cliente previsível.</p><p>Se Carlos fechar 4 pedidos, custo por cliente é R$100. Se fechar 10, é R$40. Quanto mais o canal performa, mais barato fica cada cliente.</p></div></div>
+        <div class="arg-row"><div class="arg-label">Dor latente</div><div class="arg-content"><p>O que realmente custa caro é o mês com caçamba parada, o motorista ocioso, o custo fixo da operação sem pedido suficiente.</p><p>R$400 é visível na fatura. O custo da ociosidade é invisível, mas é real e provavelmente maior.</p></div></div>
+        <div class="arg-row"><div class="arg-label">Risco controlado</div><div class="arg-content"><p>A mensalidade é cancelável. Não é contrato de 12 meses, não é verba de anúncio que some. Carlos paga, testa, mede as ligações e decide com dado real.</p><p>O risco fica do lado de quem vende o serviço, não de quem assina. Exposição máxima: R$400.</p></div></div>
+        <div class="arg-row"><div class="arg-label">Ancoragem</div><div class="arg-content"><p>R$400 dividido por 30 dias é R$13,30 por dia. Menos do que o almoço de um motorista. Menos do que o combustível de uma entrega urbana.</p><p>Por R$13 por dia, vale ter um canal que traz cliente novo sem o dono precisar fazer nada.</p></div></div>
+        <div class="arg-row"><div class="arg-label">Contradição</div><div class="arg-content"><p>Carlos provavelmente já gastou mais do que R$400 em ações sem resultado mensurável: panfleto, busdoor, post pago. Esses gastos foram aceitos porque pareciam normais.</p><p>O mesmo valor aplicado em canal direto gera resistência porque é modelo novo. A contradição está em aceitar o gasto sem prova e questionar o gasto com prova.</p></div></div>
+      </div>
+    </div>
+
+    <div class="objecao-block">
+      <div class="objecao-header">
+        <div class="objecao-num">02</div>
+        <div class="objecao-texto">"Não sei se as ligações vão ser de clientes reais"</div>
+      </div>
+      <div class="objecao-args">
+        <div class="arg-row"><div class="arg-label">Inversão de perspectiva</div><div class="arg-content"><p>A dúvida pressupõe que a indicação tem qualidade garantida. Indicação também gera contato que não fecha, cliente que pede desconto, pedido que cai.</p><p>Nenhum canal tem 100% de conversão. O canal digital entrega volume suficiente para que, mesmo com conversão parcial, o resultado seja superior ao que Carlos tem hoje.</p></div></div>
+        <div class="arg-row"><div class="arg-label">Comparação com alternativa</div><div class="arg-content"><p>Em portais de orçamento, o cliente recebe cotação de 3 ou 4 empresas ao mesmo tempo. O resultado é disputa de preço. Na Caçamba Rápida, a ligação vai para um fornecedor por vez.</p><p>Cliente que liga está mais avançado no processo de decisão do que cliente que preenche formulário. Ligação tem intenção maior do que clique.</p></div></div>
+        <div class="arg-row"><div class="arg-label">Prova de mercado</div><div class="arg-content"><p>SEO local para serviço de necessidade imediata gera leads com alta intenção de compra. Quem pesquisa "caçamba em Niterói" está com obra parada. Não é curiosidade, é necessidade.</p><p>Esse comportamento é documentado em todas as verticais de serviço urgente: encanador, eletricista, guincho, dedetização.</p></div></div>
+        <div class="arg-row"><div class="arg-label">Risco controlado</div><div class="arg-content"><p>Carlos pode medir a qualidade desde o primeiro mês. Cada ligação é registrável: atendeu, converteu, não converteu. Em 30 dias tem dados suficientes para avaliar.</p><p>Essa transparência não existe em panfleto ou post impulsionado, onde o dinheiro vai e não há como saber o que gerou resultado.</p></div></div>
+        <div class="arg-row"><div class="arg-label">Ancoragem</div><div class="arg-content"><p>Se receber 15 ligações e fechar 4 pedidos, a taxa de conversão é 26%. Superior à média de qualquer campanha de anúncio para serviço local.</p><p>A pergunta certa não é "as ligações são reais". É: "quantas ligações preciso para o canal se pagar?" A resposta é: uma.</p></div></div>
+        <div class="arg-row"><div class="arg-label">Contradição</div><div class="arg-content"><p>Carlos aceita ligação de indicação sem questionar a qualidade, mesmo que o indicador não saiba o preço ou se a caçamba está disponível. Aceita porque vem de alguém conhecido.</p><p>A resistência ao lead digital não é sobre qualidade real, é sobre familiaridade. O lead por ligação tem a mesma natureza da indicação: alguém com necessidade real ligando para resolver.</p></div></div>
+      </div>
+    </div>
+
+    <div class="objecao-block">
+      <div class="objecao-header">
+        <div class="objecao-num">03</div>
+        <div class="objecao-texto">"Já tenho clientes suficientes, não preciso disso agora"</div>
+      </div>
+      <div class="objecao-args">
+        <div class="arg-row"><div class="arg-label">Inversão de perspectiva</div><div class="arg-content"><p>Ter clientes suficientes hoje não significa ter clientes suficientes no mês que vem. Obra acaba, cliente muda de fornecedor, indicação seca por temporada.</p><p>Canal de captação não se monta quando a demanda cai. Se monta quando a operação está saudável, para nunca depender de indicação para sobreviver.</p></div></div>
+        <div class="arg-row"><div class="arg-label">Dor latente</div><div class="arg-content"><p>"Clientes suficientes" muitas vezes significa "estou ocupado demais para pensar em crescimento". Mas ocupado com os mesmos clientes de sempre não é crescimento, é manutenção.</p><p>Se um cliente grande parar de pedir, ou a construção na região desacelerar, Carlos vai precisar de um canal que já esteja rodando. Montar esse canal em crise é mais difícil e mais caro.</p></div></div>
+        <div class="arg-row"><div class="arg-label">Risco controlado</div><div class="arg-content"><p>Assinar agora com a operação cheia é o melhor momento para testar. As ligações chegam, Carlos atende no ritmo que quiser, mede a qualidade e decide se mantém.</p><p>Testar quando não precisa é mais seguro do que precisar quando ainda não testou.</p></div></div>
+        <div class="arg-row"><div class="arg-label">Contradição</div><div class="arg-content"><p>Carlos não cancela o seguro do caminhão quando o mês está bom. Não para de abastecer quando o tanque está pela metade.</p><p>Canal de captação tem a mesma lógica: se mantém ativo para nunca faltar quando precisar. Cancelar o canal porque está cheio hoje é o mesmo que cancelar o seguro porque o mês foi tranquilo.</p></div></div>
+      </div>
+    </div>
+
+    <div class="objecao-block">
+      <div class="objecao-header">
+        <div class="objecao-num">04</div>
+        <div class="objecao-texto">"Não entendo como funciona, parece complicado"</div>
+      </div>
+      <div class="objecao-args">
+        <div class="arg-row"><div class="arg-label">Inversão de perspectiva</div><div class="arg-content"><p>O canal é tecnicamente complexo do lado de quem construiu, não do lado de quem usa. Carlos não precisa entender SEO, estrutura de site ou roteamento de ligação.</p><p>A complexidade foi resolvida antes de chegar até ele. Esse é exatamente o valor do serviço.</p></div></div>
+        <div class="arg-row"><div class="arg-label">Ancoragem</div><div class="arg-content"><p>Carlos usa app de banco, GPS no caminhão, WhatsApp Business. Todos eram complicados antes de usar uma vez. O canal de ligação é menos complexo do que qualquer um deles.</p><p>Curva de aprendizado zero. O telefone toca. Carlos atende. Fecha o pedido. É isso.</p></div></div>
+        <div class="arg-row"><div class="arg-label">Contradição</div><div class="arg-content"><p>Carlos toma decisões operacionais complexas todo dia: logística de entrega, precificação por bairro, gestão de motorista. Nenhuma tem manual. Aprendeu fazendo.</p><p>O canal de ligação é menos complexo do que qualquer rotina que ele já domina. A resistência não é técnica, é desconhecimento do modelo. Um mês de uso resolve.</p></div></div>
+      </div>
+    </div>
+
+    <div class="objecao-block">
+      <div class="objecao-header">
+        <div class="objecao-num">05</div>
+        <div class="objecao-texto">"E se eu receber ligações demais e não conseguir atender?"</div>
+      </div>
+      <div class="objecao-args">
+        <div class="arg-row"><div class="arg-label">Inversão de perspectiva</div><div class="arg-content"><p>Receber mais ligações do que consegue atender é um problema de crescimento, não de canal. É exatamente o problema que toda empresa quer ter.</p><p>Canal que gera demanda demais é canal funcionando. O ajuste é operacional, não é motivo para não assinar.</p></div></div>
+        <div class="arg-row"><div class="arg-label">Comparação com alternativa</div><div class="arg-content"><p>Nenhum canal que Carlos usa hoje gerou esse problema. Indicação tem volume limitado. Post no Instagram tem alcance baixo.</p><p>A objeção é hipotética, baseada em cenário que Carlos ainda não viveu. Vale mais testar e ajustar do que não testar por precaução.</p></div></div>
+        <div class="arg-row"><div class="arg-label">Risco controlado</div><div class="arg-content"><p>Carlos pode pausar ou ajustar o volume a qualquer momento. O canal é flexível, não é uma torneira sem registro.</p><p>O controle continua com Carlos. Ele decide o ritmo de crescimento.</p></div></div>
+        <div class="arg-row"><div class="arg-label">Contradição</div><div class="arg-content"><p>Carlos não deixa de comprar material porque pode sobrar. Não deixa de contratar motorista porque pode ter dia sem pedido. Decisões de negócio são tomadas com base no potencial, não no medo do excesso.</p><p>Recusar um canal com medo de cliente demais é a única decisão de negócio que usa o sucesso como argumento contra si mesmo.</p></div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SONHO -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title">Sonho do consumidor</h2>
+    </div>
+    <div class="sonho-card">
+      <p>"Chego segunda de manhã, tomo café, e já tem três ligações esperando no celular. Dois clientes querendo caçamba para essa semana, um para amanhã mesmo. Meu motorista já sabe o que fazer, eu só confirmo e lanço no sistema. Não precisei ligar para ninguém, não precisei postar nada, não precisei pedir indicação para ninguém. O pedido chegou porque minha empresa aparece quando o cliente precisa. Isso é o que eu queria desde que abri o negócio."</p>
+    </div>
+  </div>
+
+  <!-- FRASES -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2 class="section-title">Frases que essa pessoa diria</h2>
+    </div>
+    <div class="frases-grid">
+      <div class="frase-card"><div class="frase-num">01</div><p>"Meus clientes são quase todos indicação, quando seca, fico na mão."</p></div>
+      <div class="frase-card"><div class="frase-num">02</div><p>"Quero que o telefone toque com cliente novo, sem precisar ficar correndo atrás."</p></div>
+      <div class="frase-card"><div class="frase-num">03</div><p>"Já gastei dinheiro com marketing antes e não vi resultado nenhum."</p></div>
+      <div class="frase-card"><div class="frase-num">04</div><p>"Não tenho tempo para ficar mexendo em site e Instagram, tenho operação para tocar."</p></div>
+      <div class="frase-card"><div class="frase-num">05</div><p>"Se eu soubesse que ia dar certo, eu pagava na hora. O problema é que não sei."</p></div>
+      <div class="frase-card"><div class="frase-num">06</div><p>"Vi uma empresa de caçamba aqui perto que aparece em primeiro no Google, não sei como eles fazem isso."</p></div>
+      <div class="frase-card"><div class="frase-num">07</div><p>"R$400 é pouco se vier cliente de verdade, o problema é que ainda não sei se vem."</p></div>
+      <div class="frase-card"><div class="frase-num">08</div><p>"Minha frota fica parada na terça e quarta, se tivesse mais pedido já pagava mais um motorista."</p></div>
+    </div>
+  </div>
+
+  <!-- COMUNICAÇÃO -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2 class="section-title">Como se comunicar</h2>
+    </div>
+    <div class="comunicacao-grid">
+      <div class="comm-card">
+        <h3>Tom de voz</h3>
+        <p>Direto e prático, sem vocabulário de marketing. Falar como alguém do setor, não como agência. Usar exemplos concretos de obra, entulho, pedido, ligação. Sem entusiasmo exagerado.</p>
+      </div>
+      <div class="comm-card">
+        <h3>Palavras que conectam</h3>
+        <div class="word-pills">
+          <span class="pill pill-green">pedido</span>
+          <span class="pill pill-green">ligação</span>
+          <span class="pill pill-green">cliente novo</span>
+          <span class="pill pill-green">telefone tocando</span>
+          <span class="pill pill-green">caçamba parada</span>
+          <span class="pill pill-green">sem contrato</span>
+          <span class="pill pill-green">sem enrolação</span>
+          <span class="pill pill-green">resultado no mês</span>
+          <span class="pill pill-green">fácil de cancelar</span>
+          <span class="pill pill-green">cobre o custo</span>
+        </div>
+      </div>
+      <div class="comm-card">
+        <h3>Palavras que afastam</h3>
+        <div class="word-pills">
+          <span class="pill pill-red">lead</span>
+          <span class="pill pill-red">funil</span>
+          <span class="pill pill-red">conversão</span>
+          <span class="pill pill-red">tráfego</span>
+          <span class="pill pill-red">engajamento</span>
+          <span class="pill pill-red">brand awareness</span>
+          <span class="pill pill-red">jornada do cliente</span>
+          <span class="pill pill-red">estratégia digital</span>
+          <span class="pill pill-red">escalar</span>
+          <span class="pill pill-red">presença online</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ENTREGÁVEIS -->
+<div class="container">
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <h2 class="section-title">Entregáveis do produto</h2>
+    </div>
+    <div class="entregaveis-grid">
+
+      <div class="entregavel-card">
+        <span class="entregavel-tipo">Core</span>
+        <div class="entregavel-nome">Listagem ativa no site da Caçamba Rápida</div>
+        <div class="entregavel-desc">Perfil do fornecedor publicado com nome da empresa, área de cobertura, horário de atendimento e link de contato. Aparece nos resultados de busca orgânica e nas páginas de região.</div>
+      </div>
+
+      <div class="entregavel-card">
+        <span class="entregavel-tipo">Core</span>
+        <div class="entregavel-nome">Encaminhamento de ligações em tempo real</div>
+        <div class="entregavel-desc">Toda ligação gerada pelo site é encaminhada diretamente para o número cadastrado do fornecedor. O cliente liga achando que fala com a empresa diretamente.</div>
+      </div>
+
+      <div class="entregavel-card">
+        <span class="entregavel-tipo">Core</span>
+        <div class="entregavel-nome">Cobertura geográfica definida</div>
+        <div class="entregavel-desc">O fornecedor define os bairros ou cidades que atende. As ligações são filtradas por região para garantir que só chegam pedidos dentro da área de operação.</div>
+      </div>
+
+      <div class="entregavel-card">
+        <span class="entregavel-tipo">Relatório</span>
+        <div class="entregavel-nome">Relatório mensal de ligações recebidas</div>
+        <div class="entregavel-desc">Resumo enviado por WhatsApp ou e-mail com total de ligações no mês, distribuição por dia da semana e horário de pico. Ajuda o fornecedor a entender o comportamento da demanda na sua região.</div>
+      </div>
+
+      <div class="entregavel-card">
+        <span class="entregavel-tipo">Suporte</span>
+        <div class="entregavel-nome">Atendimento direto por WhatsApp</div>
+        <div class="entregavel-desc">Canal de suporte dedicado para ajustar área de cobertura, atualizar dados do perfil, reportar problema de ligação ou pausar temporariamente o encaminhamento.</div>
+      </div>
+
+      <div class="entregavel-card">
+        <span class="entregavel-tipo">Acesso</span>
+        <div class="entregavel-nome">Painel de acompanhamento básico</div>
+        <div class="entregavel-desc">Acesso a um painel simples onde o fornecedor vê o histórico de ligações recebidas, o status da listagem e pode atualizar suas informações de cadastro sem precisar entrar em contato com o suporte.</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- BÔNUS -->
+<div class="bonus-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num" style="color: var(--orange-mid);">10</span>
+      <h2 class="section-title">Bônus da oferta</h2>
+    </div>
+    <p class="bonus-intro">Bônus pensados para o ticket de R$400/mês: baixo custo de produção, alto valor percebido pelo Carlos, diretamente ligados à Promessa e ao perfil operacional do comprador.</p>
+    <div class="bonus-grid">
+
+      <div class="bonus-card destaque">
+        <div class="bonus-badge">Recomendado</div>
+        <div class="bonus-icon">📞</div>
+        <div class="bonus-nome">Script de atendimento para ligação de caçamba</div>
+        <div class="bonus-desc">Roteiro em uma página para o dono ou funcionário atender a ligação, capturar o endereço, entender o tipo de entulho, fechar o pedido e confirmar a entrega. Aumenta a taxa de conversão das ligações recebidas.</div>
+        <div class="bonus-valor"><span class="label">Valor percebido</span><span class="val">Alto — resolve o "atendo bem a ligação?" que ninguém fala mas todo mundo tem</span></div>
+      </div>
+
+      <div class="bonus-card destaque">
+        <div class="bonus-badge">Recomendado</div>
+        <div class="bonus-icon">🗺️</div>
+        <div class="bonus-nome">Mapa de bairros quentes da sua região</div>
+        <div class="bonus-desc">Levantamento dos bairros com maior densidade de obras e reformas na área de cobertura do fornecedor, com base nos dados de ligação do site. Ajuda a definir prioridade de atendimento e justifica expandir para bairros adjacentes.</div>
+        <div class="bonus-valor"><span class="label">Valor percebido</span><span class="val">Alto — dado exclusivo que o fornecedor não consegue em lugar nenhum</span></div>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-icon">⚙️</div>
+        <div class="bonus-nome">Configuração do Google Meu Negócio</div>
+        <div class="bonus-desc">Setup completo do perfil do fornecedor no Google Maps: fotos, horário, descrição, categoria e primeiras respostas a avaliações. Aumenta a visibilidade local e complementa o canal de ligações do site.</div>
+        <div class="bonus-valor"><span class="label">Valor percebido</span><span class="val">Médio-alto — Carlos ouviu falar mas nunca configurou</span></div>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-icon">📋</div>
+        <div class="bonus-nome">Planilha de controle de pedidos e receita</div>
+        <div class="bonus-desc">Planilha simples para registrar cada pedido recebido, endereço, tipo de caçamba, valor cobrado e se foi gerado pelo canal ou por indicação. Permite calcular o custo por cliente e o ROI da mensalidade mês a mês.</div>
+        <div class="bonus-valor"><span class="label">Valor percebido</span><span class="val">Médio — operacional, mas resolve a "gestão no papel"</span></div>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-icon">🖼️</div>
+        <div class="bonus-nome">Kit de 5 posts prontos para Instagram</div>
+        <div class="bonus-desc">Artes editáveis no Canva com textos já escritos para o Carlos publicar na semana de cadastro. Conteúdo focado em prova social: "agora aparecemos no Google", "atendemos sua região", "ligue e agende". Reduz a desculpa de não postar.</div>
+        <div class="bonus-valor"><span class="label">Valor percebido</span><span class="val">Médio — baixo esforço de produção, resolve dor real</span></div>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-icon">🏷️</div>
+        <div class="bonus-nome">Selo "Parceiro Verificado Caçamba Rápida"</div>
+        <div class="bonus-desc">Imagem e texto de certificação para o fornecedor usar no WhatsApp Business, cartão de visita digital e Instagram. Gera diferenciação frente a concorrentes sem presença digital e aumenta a confiança do cliente na hora de fechar.</div>
+        <div class="bonus-valor"><span class="label">Valor percebido</span><span class="val">Baixo custo, alto impacto em reputação</span></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- RESUMO DA OFERTA -->
+<div class="container">
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">11</span>
+      <h2 class="section-title">Resumo da oferta completa</h2>
+    </div>
+    <div class="oferta-box">
+      <div>
+        <h2>Caçamba Rápida — Plano Mensal</h2>
+        <p>Listagem ativa + encaminhamento de ligações + cobertura por região + relatório mensal + suporte WhatsApp + painel de acompanhamento + 6 bônus de onboarding inclusos no primeiro mês.</p>
+      </div>
+      <div class="oferta-preco">
+        <span class="label">Mensalidade</span>
+        <span class="valor">R$400</span>
+        <span class="periodo">por mês, sem fidelidade</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
