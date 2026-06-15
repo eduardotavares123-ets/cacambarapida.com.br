@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PBPKDRM7HC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PBPKDRM7HC');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — CaçambaRápida</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --amarelo: #F5C400;
+    --preto: #111111;
+    --cinza-escuro: #1E1E1E;
+    --cinza-medio: #2E2E2E;
+    --branco: #FFFFFF;
+    --texto-muted: #888;
+    --verde: #22c55e;
+    --vermelho: #ef4444;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Barlow', sans-serif; background: var(--preto); color: var(--branco); min-height: 100vh; display: flex; flex-direction: column; }
+
+  /* LOGIN */
+  #tela-login {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  .login-box {
+    background: var(--cinza-escuro);
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+  }
+  .login-box h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: var(--amarelo);
+    margin-bottom: 0.25rem;
+  }
+  .login-box p { color: var(--texto-muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+  .login-box input {
+    width: 100%;
+    background: var(--preto);
+    color: var(--branco);
+    border: 1px solid #444;
+    border-radius: 6px;
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    font-family: 'Barlow', sans-serif;
+    margin-bottom: 1rem;
+    text-align: center;
+    letter-spacing: 0.2em;
+  }
+  .login-box input:focus { outline: none; border-color: var(--amarelo); }
+  .login-box button {
+    width: 100%;
+    background: var(--amarelo);
+    color: var(--preto);
+    border: none;
+    border-radius: 6px;
+    padding: 0.85rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: background 0.2s;
+  }
+  .login-box button:hover { background: #D4A800; }
+  .erro-login { color: var(--vermelho); font-size: 0.85rem; margin-top: 0.75rem; display: none; }
+
+  /* ADMIN */
+  #tela-admin { display: none; flex: 1; flex-direction: column; }
+  header {
+    background: var(--preto);
+    border-bottom: 2px solid var(--amarelo);
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.4rem; color: var(--amarelo); }
+  .logo span { color: var(--branco); }
+  .btn-sair {
+    background: none;
+    border: 1px solid #444;
+    color: var(--texto-muted);
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-family: 'Barlow', sans-serif;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-sair:hover { border-color: var(--vermelho); color: var(--vermelho); }
+
+  .admin-body { padding: 2rem 1.5rem; max-width: 900px; margin: 0 auto; width: 100%; }
+  .admin-titulo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+  }
+  .admin-titulo em { color: var(--amarelo); font-style: normal; }
+  .admin-sub { color: var(--texto-muted); font-size: 0.9rem; margin-bottom: 2rem; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+  .card {
+    background: var(--cinza-escuro);
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+  .card-cidade { font-size: 0.8rem; color: var(--texto-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+  .card-numero { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 3.5rem; color: var(--amarelo); line-height: 1; }
+  .card-label { font-size: 0.85rem; color: var(--texto-muted); margin-top: 0.25rem; }
+
+  .log-titulo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    color: var(--texto-muted);
+  }
+  .log-tabela { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .log-tabela th { text-align: left; padding: 0.6rem 1rem; background: var(--cinza-medio); color: var(--texto-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .log-tabela td { padding: 0.7rem 1rem; border-bottom: 1px solid #2a2a2a; }
+  .log-tabela tr:last-child td { border-bottom: none; }
+  .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+  }
+  .badge-angra-dos-reis { background: #1a3a5c; color: #7eb8f7; }
+  .badge-aperibe { background: #3a1a1a; color: #f78c7e; }
+  .badge-araruama { background: #1a3a1a; color: #7ef7a0; }
+  .badge-areal { background: #3a2a1a; color: #f7c87e; }
+  .badge-armacao-dos-buzios { background: #2a1a3a; color: #c87ef7; }
+  .badge-arraial-do-cabo { background: #1a2a3a; color: #7ef7f0; }
+  .badge-barra-do-pirai { background: #3a3a1a; color: #f7f07e; }
+  .badge-barra-mansa { background: #2a3a1a; color: #a0f77e; }
+  .badge-belford-roxo { background: #1a3a5c; color: #7eb8f7; }
+  .badge-bom-jardim { background: #3a1a1a; color: #f78c7e; }
+  .badge-bom-jesus-do-itabapoana { background: #1a3a1a; color: #7ef7a0; }
+  .badge-cabo-frio { background: #3a2a1a; color: #f7c87e; }
+  .badge-cachoeiras-de-macacu { background: #2a1a3a; color: #c87ef7; }
+  .badge-cambuci { background: #1a2a3a; color: #7ef7f0; }
+  .badge-campos-dos-goytacazes { background: #3a3a1a; color: #f7f07e; }
+  .badge-cantagalo { background: #2a3a1a; color: #a0f77e; }
+  .badge-carapebus { background: #1a3a5c; color: #7eb8f7; }
+  .badge-cardoso-moreira { background: #3a1a1a; color: #f78c7e; }
+  .badge-carmo { background: #1a3a1a; color: #7ef7a0; }
+  .badge-casimiro-de-abreu { background: #3a2a1a; color: #f7c87e; }
+  .badge-comendador-levy-gasparian { background: #2a1a3a; color: #c87ef7; }
+  .badge-conceicao-de-macabu { background: #1a2a3a; color: #7ef7f0; }
+  .badge-cordeiro { background: #3a3a1a; color: #f7f07e; }
+  .badge-duas-barras { background: #2a3a1a; color: #a0f77e; }
+  .badge-duque-de-caxias { background: #1a3a5c; color: #7eb8f7; }
+  .badge-engenheiro-paulo-de-frontin { background: #3a1a1a; color: #f78c7e; }
+  .badge-guapimirim { background: #1a3a1a; color: #7ef7a0; }
+  .badge-iguaba-grande { background: #3a2a1a; color: #f7c87e; }
+  .badge-itaborai { background: #2a1a3a; color: #c87ef7; }
+  .badge-itaguai { background: #1a2a3a; color: #7ef7f0; }
+  .badge-italva { background: #3a3a1a; color: #f7f07e; }
+  .badge-itaocara { background: #2a3a1a; color: #a0f77e; }
+  .badge-itaperuna { background: #1a3a5c; color: #7eb8f7; }
+  .badge-itatiaia { background: #3a1a1a; color: #f78c7e; }
+  .badge-japeri { background: #1a3a1a; color: #7ef7a0; }
+  .badge-laje-do-muriae { background: #3a2a1a; color: #f7c87e; }
+  .badge-macae { background: #2a1a3a; color: #c87ef7; }
+  .badge-macuco { background: #1a2a3a; color: #7ef7f0; }
+  .badge-mage { background: #3a3a1a; color: #f7f07e; }
+  .badge-mangaratiba { background: #2a3a1a; color: #a0f77e; }
+  .badge-marica { background: #1a3a5c; color: #7eb8f7; }
+  .badge-mendes { background: #3a1a1a; color: #f78c7e; }
+  .badge-mesquita { background: #1a3a1a; color: #7ef7a0; }
+  .badge-miguel-pereira { background: #3a2a1a; color: #f7c87e; }
+  .badge-miracema { background: #2a1a3a; color: #c87ef7; }
+  .badge-natividade { background: #1a2a3a; color: #7ef7f0; }
+  .badge-nilopolis { background: #3a3a1a; color: #f7f07e; }
+  .badge-niteroi { background: #2a3a1a; color: #a0f77e; }
+  .badge-nova-friburgo { background: #1a3a5c; color: #7eb8f7; }
+  .badge-nova-iguacu { background: #3a1a1a; color: #f78c7e; }
+  .badge-paracambi { background: #1a3a1a; color: #7ef7a0; }
+  .badge-paraiba-do-sul { background: #3a2a1a; color: #f7c87e; }
+  .badge-paraty { background: #2a1a3a; color: #c87ef7; }
+  .badge-paty-do-alferes { background: #1a2a3a; color: #7ef7f0; }
+  .badge-petropolis { background: #3a3a1a; color: #f7f07e; }
+  .badge-pinheiral { background: #2a3a1a; color: #a0f77e; }
+  .badge-pirai { background: #1a3a5c; color: #7eb8f7; }
+  .badge-porciuncula { background: #3a1a1a; color: #f78c7e; }
+  .badge-porto-real { background: #1a3a1a; color: #7ef7a0; }
+  .badge-quatis { background: #3a2a1a; color: #f7c87e; }
+  .badge-queimados { background: #2a1a3a; color: #c87ef7; }
+  .badge-quissama { background: #1a2a3a; color: #7ef7f0; }
+  .badge-resende { background: #3a3a1a; color: #f7f07e; }
+  .badge-rio-bonito { background: #2a3a1a; color: #a0f77e; }
+  .badge-rio-claro { background: #1a3a5c; color: #7eb8f7; }
+  .badge-rio-das-flores { background: #3a1a1a; color: #f78c7e; }
+  .badge-rio-das-ostras { background: #1a3a1a; color: #7ef7a0; }
+  .badge-rio-de-janeiro { background: #3a2a1a; color: #f7c87e; }
+  .badge-santa-maria-madalena { background: #2a1a3a; color: #c87ef7; }
+  .badge-santo-antonio-de-padua { background: #1a2a3a; color: #7ef7f0; }
+  .badge-sao-francisco-de-itabapoana { background: #3a3a1a; color: #f7f07e; }
+  .badge-sao-goncalo { background: #2a3a1a; color: #a0f77e; }
+  .badge-sao-joao-de-meriti { background: #1a3a5c; color: #7eb8f7; }
+  .badge-sao-jose-de-uba { background: #3a1a1a; color: #f78c7e; }
+  .badge-sao-jose-do-vale-do-rio-preto { background: #1a3a1a; color: #7ef7a0; }
+  .badge-sao-pedro-da-aldeia { background: #3a2a1a; color: #f7c87e; }
+  .badge-sao-sebastiao-do-alto { background: #2a1a3a; color: #c87ef7; }
+  .badge-sapucaia { background: #1a2a3a; color: #7ef7f0; }
+  .badge-saquarema { background: #3a3a1a; color: #f7f07e; }
+  .badge-seropedica { background: #2a3a1a; color: #a0f77e; }
+  .badge-silva-jardim { background: #1a3a5c; color: #7eb8f7; }
+  .badge-sumidouro { background: #3a1a1a; color: #f78c7e; }
+  .badge-tangua { background: #1a3a1a; color: #7ef7a0; }
+  .badge-teresopolis { background: #3a2a1a; color: #f7c87e; }
+  .badge-tres-rios { background: #2a1a3a; color: #c87ef7; }
+  .badge-valenca { background: #1a2a3a; color: #7ef7f0; }
+  .badge-varre-sai { background: #3a3a1a; color: #f7f07e; }
+  .badge-vassouras { background: #2a3a1a; color: #a0f77e; }
+  .badge-volta-redonda { background: #1a3a5c; color: #7eb8f7; }
+
+  .btn-limpar {
+    margin-top: 1.5rem;
+    background: none;
+    border: 1px solid var(--vermelho);
+    color: var(--vermelho);
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-family: 'Barlow', sans-serif;
+    transition: background 0.2s;
+  }
+  .btn-limpar:hover { background: rgba(239,68,68,0.1); }
+  .vazio { color: var(--texto-muted); font-size: 0.9rem; padding: 1rem 0; }
+</style>
+</head>
+<body>
+
+<!-- TELA DE LOGIN -->
+<div id="tela-login">
+  <div class="login-box">
+    <h1>Caçamba<span style="color:#fff">Rápida</span></h1>
+    <p>Painel administrativo — acesso restrito</p>
+    <input type="password" id="senha-input" placeholder="••••••••" onkeydown="if(event.key==='Enter') entrar()">
+    <button onclick="entrar()">ENTRAR</button>
+    <p class="erro-login" id="erro-login">Senha incorreta. Tente novamente.</p>
+  </div>
+</div>
+
+<!-- TELA ADMIN -->
+<div id="tela-admin">
+  <header>
+    <div class="logo">Caçamba<span>Rápida</span> <span style="color: var(--texto-muted); font-size: 0.9rem; font-weight: 400; margin-left: 8px;">Admin</span></div>
+    <button class="btn-sair" onclick="sair()">Sair</button>
+  </header>
+
+  <div class="admin-body">
+    <h1 class="admin-titulo">Cliques por <em>cidade</em></h1>
+    <p class="admin-sub" id="ultima-atualizacao"></p>
+
+    <div class="cards" id="cards"></div>
+
+    <p class="log-titulo">Histórico de cliques</p>
+    <div id="log-container"></div>
+
+    <button class="btn-limpar" onclick="limparDados()">Zerar todos os dados</button>
+  </div>
+</div>
+
+<script>
+  const SENHA = 'cacamba2025';
+
+    const CIDADES = {
+    'angra-dos-reis': 'Angra dos Reis',
+    'aperibe': 'Aperibé',
+    'araruama': 'Araruama',
+    'areal': 'Areal',
+    'armacao-dos-buzios': 'Armação dos Búzios',
+    'arraial-do-cabo': 'Arraial do Cabo',
+    'barra-do-pirai': 'Barra do Piraí',
+    'barra-mansa': 'Barra Mansa',
+    'belford-roxo': 'Belford Roxo',
+    'bom-jardim': 'Bom Jardim',
+    'bom-jesus-do-itabapoana': 'Bom Jesus do Itabapoana',
+    'cabo-frio': 'Cabo Frio',
+    'cachoeiras-de-macacu': 'Cachoeiras de Macacu',
+    'cambuci': 'Cambuci',
+    'campos-dos-goytacazes': 'Campos dos Goytacazes',
+    'cantagalo': 'Cantagalo',
+    'carapebus': 'Carapebus',
+    'cardoso-moreira': 'Cardoso Moreira',
+    'carmo': 'Carmo',
+    'casimiro-de-abreu': 'Casimiro de Abreu',
+    'comendador-levy-gasparian': 'Comendador Levy Gasparian',
+    'conceicao-de-macabu': 'Conceição de Macabu',
+    'cordeiro': 'Cordeiro',
+    'duas-barras': 'Duas Barras',
+    'duque-de-caxias': 'Duque de Caxias',
+    'engenheiro-paulo-de-frontin': 'Engenheiro Paulo de Frontin',
+    'guapimirim': 'Guapimirim',
+    'iguaba-grande': 'Iguaba Grande',
+    'itaborai': 'Itaboraí',
+    'itaguai': 'Itaguaí',
+    'italva': 'Italva',
+    'itaocara': 'Itaocara',
+    'itaperuna': 'Itaperuna',
+    'itatiaia': 'Itatiaia',
+    'japeri': 'Japeri',
+    'laje-do-muriae': 'Laje do Muriaé',
+    'macae': 'Macaé',
+    'macuco': 'Macuco',
+    'mage': 'Magé',
+    'mangaratiba': 'Mangaratiba',
+    'marica': 'Maricá',
+    'mendes': 'Mendes',
+    'mesquita': 'Mesquita',
+    'miguel-pereira': 'Miguel Pereira',
+    'miracema': 'Miracema',
+    'natividade': 'Natividade',
+    'nilopolis': 'Nilópolis',
+    'niteroi': 'Niterói',
+    'nova-friburgo': 'Nova Friburgo',
+    'nova-iguacu': 'Nova Iguaçu',
+    'paracambi': 'Paracambi',
+    'paraiba-do-sul': 'Paraíba do Sul',
+    'paraty': 'Paraty',
+    'paty-do-alferes': 'Paty do Alferes',
+    'petropolis': 'Petrópolis',
+    'pinheiral': 'Pinheiral',
+    'pirai': 'Piraí',
+    'porciuncula': 'Porciúncula',
+    'porto-real': 'Porto Real',
+    'quatis': 'Quatis',
+    'queimados': 'Queimados',
+    'quissama': 'Quissamã',
+    'resende': 'Resende',
+    'rio-bonito': 'Rio Bonito',
+    'rio-claro': 'Rio Claro',
+    'rio-das-flores': 'Rio das Flores',
+    'rio-das-ostras': 'Rio das Ostras',
+    'rio-de-janeiro': 'Rio de Janeiro',
+    'santa-maria-madalena': 'Santa Maria Madalena',
+    'santo-antonio-de-padua': 'Santo Antônio de Pádua',
+    'sao-francisco-de-itabapoana': 'São Francisco de Itabapoana',
+    'sao-goncalo': 'São Gonçalo',
+    'sao-joao-de-meriti': 'São João de Meriti',
+    'sao-jose-de-uba': 'São José de Ubá',
+    'sao-jose-do-vale-do-rio-preto': 'São José do Vale do Rio Preto',
+    'sao-pedro-da-aldeia': 'São Pedro da Aldeia',
+    'sao-sebastiao-do-alto': 'São Sebastião do Alto',
+    'sapucaia': 'Sapucaia',
+    'saquarema': 'Saquarema',
+    'seropedica': 'Seropédica',
+    'silva-jardim': 'Silva Jardim',
+    'sumidouro': 'Sumidouro',
+    'tangua': 'Tanguá',
+    'teresopolis': 'Teresópolis',
+    'tres-rios': 'Três Rios',
+    'valenca': 'Valença',
+    'varre-sai': 'Varre-Sai',
+    'vassouras': 'Vassouras',
+    'volta-redonda': 'Volta Redonda',
+  };
+
+  function entrar() {
+    const senha = document.getElementById('senha-input').value;
+    if (senha === SENHA) {
+      document.getElementById('tela-login').style.display = 'none';
+      document.getElementById('tela-admin').style.display = 'flex';
+      carregarDados();
+    } else {
+      document.getElementById('erro-login').style.display = 'block';
+      document.getElementById('senha-input').value = '';
+    }
+  }
+
+  function sair() {
+    document.getElementById('tela-login').style.display = 'flex';
+    document.getElementById('tela-admin').style.display = 'none';
+    document.getElementById('senha-input').value = '';
+  }
+
+  function carregarDados() {
+    // Cards de contagem
+    const cards = document.getElementById('cards');
+    cards.innerHTML = '';
+    let total = 0;
+
+    Object.entries(CIDADES).forEach(([chave, nome]) => {
+      const count = parseInt(localStorage.getItem('cliques_' + chave) || '0');
+      total += count;
+      cards.innerHTML += `
+        <div class="card">
+          <div class="card-cidade">${nome}</div>
+          <div class="card-numero">${count}</div>
+          <div class="card-label">cliques no telefone</div>
+        </div>
+      `;
+    });
+
+    // Card total
+    cards.innerHTML += `
+      <div class="card" style="border-color: #3a3a2a;">
+        <div class="card-cidade">Total geral</div>
+        <div class="card-numero" style="color: var(--branco);">${total}</div>
+        <div class="card-label">cliques no telefone</div>
+      </div>
+    `;
+
+    // Atualização
+    document.getElementById('ultima-atualizacao').textContent =
+      'Atualizado em ' + new Date().toLocaleString('pt-BR');
+
+    // Log
+    const log = JSON.parse(localStorage.getItem('log_cliques') || '[]');
+    const container = document.getElementById('log-container');
+
+    if (log.length === 0) {
+      container.innerHTML = '<p class="vazio">Nenhum clique registrado ainda.</p>';
+      return;
+    }
+
+    const logInvertido = [...log].reverse();
+    let linhas = logInvertido.map((item, i) => {
+      const cidade = CIDADES[item.cidade] || item.cidade;
+      const badge = 'badge-' + item.cidade;
+      const data = new Date(item.data).toLocaleString('pt-BR');
+      return `<tr>
+        <td>${logInvertido.length - i}</td>
+        <td><span class="badge ${badge}">${cidade}</span></td>
+        <td>${data}</td>
+      </tr>`;
+    }).join('');
+
+    container.innerHTML = `
+      <table class="log-tabela">
+        <thead><tr><th>#</th><th>Cidade</th><th>Data e hora</th></tr></thead>
+        <tbody>${linhas}</tbody>
+      </table>
+    `;
+  }
+
+  function limparDados() {
+    if (!confirm('Tem certeza? Todos os dados serão apagados.')) return;
+    Object.keys(CIDADES).forEach(chave => localStorage.removeItem('cliques_' + chave));
+    localStorage.removeItem('log_cliques');
+    carregarDados();
+  }
+</script>
+
+</body>
+</html>
