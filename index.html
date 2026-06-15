@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PBPKDRM7HC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PBPKDRM7HC');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aluguel de Caçamba de Entulho | Caçamba Rápida</title>
+<meta name="description" content="Aluguel de caçamba de entulho rápido e fácil. Atendemos Niterói, Volta Redonda e região. Ligue agora e receba sua caçamba hoje.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://cacambarapida.com.br/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --amarelo: #F5C400;
+    --amarelo-escuro: #D4A800;
+    --preto: #111111;
+    --cinza-escuro: #1E1E1E;
+    --cinza-medio: #2E2E2E;
+    --cinza-claro: #F5F5F3;
+    --branco: #FFFFFF;
+    --texto-muted: #888;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--preto);
+    color: var(--branco);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--preto);
+    border-bottom: 2px solid var(--amarelo);
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: var(--amarelo);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: var(--branco); }
+  nav a {
+    color: var(--branco);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-left: 1.5rem;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--amarelo); }
+
+  /* HERO */
+  .hero {
+    background: var(--cinza-escuro);
+    padding: 4rem 1.5rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(245,196,0,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    background: var(--amarelo);
+    color: var(--preto);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 2px;
+    margin-bottom: 1.25rem;
+  }
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2.8rem, 8vw, 5rem);
+    line-height: 1;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+  .hero h1 em {
+    color: var(--amarelo);
+    font-style: normal;
+  }
+  .hero p {
+    font-size: 1.1rem;
+    color: #ccc;
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+  }
+
+  /* CIDADE SELECTOR */
+  .cidade-box {
+    background: var(--cinza-medio);
+    border: 1px solid #3a3a3a;
+    border-radius: 8px;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  .cidade-box label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--amarelo);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+  }
+  .cidade-box select {
+    width: 100%;
+    background: var(--preto);
+    color: var(--branco);
+    border: 1px solid #444;
+    border-radius: 6px;
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    font-family: 'Barlow', sans-serif;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23F5C400' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .cidade-box select:focus { outline: none; border-color: var(--amarelo); }
+
+  .resultado {
+    margin-top: 1.25rem;
+    display: none;
+  }
+  .resultado.visivel { display: block; }
+  .resultado-label {
+    font-size: 0.8rem;
+    color: var(--texto-muted);
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .telefone-destaque {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: var(--amarelo);
+    color: var(--preto);
+    border-radius: 6px;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .telefone-destaque:hover { background: var(--amarelo-escuro); transform: scale(1.02); }
+  .telefone-destaque svg { width: 28px; height: 28px; flex-shrink: 0; }
+  .btn-revelar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    background: var(--amarelo);
+    color: var(--preto);
+    border: none;
+    border-radius: 6px;
+    padding: 1rem 1.5rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-revelar:hover { background: var(--amarelo-escuro); transform: scale(1.02); }
+  .aviso-ligacao {
+    margin-top: 0.6rem;
+    font-size: 0.8rem;
+    color: var(--texto-muted);
+    text-align: center;
+  }
+
+  /* COMO FUNCIONA */
+  .section {
+    padding: 4rem 1.5rem;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .section-titulo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.5rem;
+  }
+  .section-titulo em { color: var(--amarelo); font-style: normal; }
+  .section-sub {
+    color: #aaa;
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+  .step {
+    background: var(--cinza-escuro);
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 1.5rem;
+    position: relative;
+  }
+  .step-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+    color: var(--amarelo);
+    line-height: 1;
+    margin-bottom: 0.75rem;
+  }
+  .step h3 {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+  .step p { font-size: 0.9rem; color: #aaa; }
+
+  /* CIDADES */
+  .cidades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+  .cidade-card {
+    background: var(--cinza-escuro);
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    text-decoration: none;
+    color: var(--branco);
+    transition: border-color 0.2s, background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .cidade-card:hover { border-color: var(--amarelo); background: #252525; }
+  .cidade-card svg { width: 18px; height: 18px; color: var(--amarelo); flex-shrink: 0; }
+  .cidade-card span { font-weight: 500; font-size: 0.95rem; }
+
+  /* DIVISOR */
+  .divisor {
+    border: none;
+    border-top: 1px solid #2a2a2a;
+    margin: 0;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--cinza-escuro);
+    border-top: 1px solid #2a2a2a;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    color: var(--texto-muted);
+    font-size: 0.85rem;
+  }
+  footer strong { color: var(--amarelo); }
+
+  /* RESPONSIVO */
+  @media (max-width: 600px) {
+    nav { display: none; }
+    .hero { padding: 2.5rem 1rem 2rem; }
+    .section { padding: 2.5rem 1rem; }
+    .telefone-destaque { font-size: 1.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo">Caçamba<span>Rápida</span></a>
+  <nav>
+    <a href="#como-funciona">Como funciona</a>
+    <a href="#cidades">Cidades</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <span class="hero-eyebrow">Atendimento imediato</span>
+    <h1>Aluguel de<br><em>Caçamba</em><br>de Entulho</h1>
+    <p>Selecione sua cidade e ligue agora. Atendimento direto, sem enrolação.</p>
+
+    <div class="cidade-box">
+      <label for="cidade-select">Selecione sua cidade</label>
+      <select id="cidade-select" onchange="mostrarTelefone()">
+        
+        <option value="">— escolha a cidade —</option>
+        <option value="angra-dos-reis">Angra dos Reis — RJ</option>
+        <option value="aperibe">Aperibé — RJ</option>
+        <option value="araruama">Araruama — RJ</option>
+        <option value="areal">Areal — RJ</option>
+        <option value="armacao-dos-buzios">Armação dos Búzios — RJ</option>
+        <option value="arraial-do-cabo">Arraial do Cabo — RJ</option>
+        <option value="barra-do-pirai">Barra do Piraí — RJ</option>
+        <option value="barra-mansa">Barra Mansa — RJ</option>
+        <option value="belford-roxo">Belford Roxo — RJ</option>
+        <option value="bom-jardim">Bom Jardim — RJ</option>
+        <option value="bom-jesus-do-itabapoana">Bom Jesus do Itabapoana — RJ</option>
+        <option value="cabo-frio">Cabo Frio — RJ</option>
+        <option value="cachoeiras-de-macacu">Cachoeiras de Macacu — RJ</option>
+        <option value="cambuci">Cambuci — RJ</option>
+        <option value="campos-dos-goytacazes">Campos dos Goytacazes — RJ</option>
+        <option value="cantagalo">Cantagalo — RJ</option>
+        <option value="carapebus">Carapebus — RJ</option>
+        <option value="cardoso-moreira">Cardoso Moreira — RJ</option>
+        <option value="carmo">Carmo — RJ</option>
+        <option value="casimiro-de-abreu">Casimiro de Abreu — RJ</option>
+        <option value="comendador-levy-gasparian">Comendador Levy Gasparian — RJ</option>
+        <option value="conceicao-de-macabu">Conceição de Macabu — RJ</option>
+        <option value="cordeiro">Cordeiro — RJ</option>
+        <option value="duas-barras">Duas Barras — RJ</option>
+        <option value="duque-de-caxias">Duque de Caxias — RJ</option>
+        <option value="engenheiro-paulo-de-frontin">Engenheiro Paulo de Frontin — RJ</option>
+        <option value="guapimirim">Guapimirim — RJ</option>
+        <option value="iguaba-grande">Iguaba Grande — RJ</option>
+        <option value="itaborai">Itaboraí — RJ</option>
+        <option value="itaguai">Itaguaí — RJ</option>
+        <option value="italva">Italva — RJ</option>
+        <option value="itaocara">Itaocara — RJ</option>
+        <option value="itaperuna">Itaperuna — RJ</option>
+        <option value="itatiaia">Itatiaia — RJ</option>
+        <option value="japeri">Japeri — RJ</option>
+        <option value="laje-do-muriae">Laje do Muriaé — RJ</option>
+        <option value="macae">Macaé — RJ</option>
+        <option value="macuco">Macuco — RJ</option>
+        <option value="mage">Magé — RJ</option>
+        <option value="mangaratiba">Mangaratiba — RJ</option>
+        <option value="marica">Maricá — RJ</option>
+        <option value="mendes">Mendes — RJ</option>
+        <option value="mesquita">Mesquita — RJ</option>
+        <option value="miguel-pereira">Miguel Pereira — RJ</option>
+        <option value="miracema">Miracema — RJ</option>
+        <option value="natividade">Natividade — RJ</option>
+        <option value="nilopolis">Nilópolis — RJ</option>
+        <option value="niteroi">Niterói — RJ</option>
+        <option value="nova-friburgo">Nova Friburgo — RJ</option>
+        <option value="nova-iguacu">Nova Iguaçu — RJ</option>
+        <option value="paracambi">Paracambi — RJ</option>
+        <option value="paraiba-do-sul">Paraíba do Sul — RJ</option>
+        <option value="paraty">Paraty — RJ</option>
+        <option value="paty-do-alferes">Paty do Alferes — RJ</option>
+        <option value="petropolis">Petrópolis — RJ</option>
+        <option value="pinheiral">Pinheiral — RJ</option>
+        <option value="pirai">Piraí — RJ</option>
+        <option value="porciuncula">Porciúncula — RJ</option>
+        <option value="porto-real">Porto Real — RJ</option>
+        <option value="quatis">Quatis — RJ</option>
+        <option value="queimados">Queimados — RJ</option>
+        <option value="quissama">Quissamã — RJ</option>
+        <option value="resende">Resende — RJ</option>
+        <option value="rio-bonito">Rio Bonito — RJ</option>
+        <option value="rio-claro">Rio Claro — RJ</option>
+        <option value="rio-das-flores">Rio das Flores — RJ</option>
+        <option value="rio-das-ostras">Rio das Ostras — RJ</option>
+        <option value="rio-de-janeiro">Rio de Janeiro — RJ</option>
+        <option value="santa-maria-madalena">Santa Maria Madalena — RJ</option>
+        <option value="santo-antonio-de-padua">Santo Antônio de Pádua — RJ</option>
+        <option value="sao-francisco-de-itabapoana">São Francisco de Itabapoana — RJ</option>
+        <option value="sao-goncalo">São Gonçalo — RJ</option>
+        <option value="sao-joao-de-meriti">São João de Meriti — RJ</option>
+        <option value="sao-jose-de-uba">São José de Ubá — RJ</option>
+        <option value="sao-jose-do-vale-do-rio-preto">São José do Vale do Rio Preto — RJ</option>
+        <option value="sao-pedro-da-aldeia">São Pedro da Aldeia — RJ</option>
+        <option value="sao-sebastiao-do-alto">São Sebastião do Alto — RJ</option>
+        <option value="sapucaia">Sapucaia — RJ</option>
+        <option value="saquarema">Saquarema — RJ</option>
+        <option value="seropedica">Seropédica — RJ</option>
+        <option value="silva-jardim">Silva Jardim — RJ</option>
+        <option value="sumidouro">Sumidouro — RJ</option>
+        <option value="tangua">Tanguá — RJ</option>
+        <option value="teresopolis">Teresópolis — RJ</option>
+        <option value="tres-rios">Três Rios — RJ</option>
+        <option value="valenca">Valença — RJ</option>
+        <option value="varre-sai">Varre-Sai — RJ</option>
+        <option value="vassouras">Vassouras — RJ</option>
+        <option value="volta-redonda">Volta Redonda — RJ</option>
+      </select>
+
+      <div class="resultado" id="resultado">
+        <button class="btn-revelar" id="btn-revelar" onclick="revelarTelefone()">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" width="22" height="22">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+          </svg>
+          CLIQUE AQUI PARA VER O TELEFONE
+        </button>
+        <a class="telefone-destaque" id="link-telefone" href="#" style="display:none">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+          </svg>
+          <span id="numero-display">(00) 00000-0000</span>
+        </a>
+        <p class="aviso-ligacao">&#128222; Ligação telefônica — não é WhatsApp</p>
+        <div id="msg-agradecimento" style="display:none; margin-top: 1rem; background: #1a2a1a; border: 1px solid #2a4a2a; border-radius: 6px; padding: 1rem 1.25rem; text-align: left;">
+          <p style="color: #7ec87e; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem;">&#10003; Obrigado pelo seu interesse!</p>
+          <p style="color: #aaa; font-size: 0.88rem; margin: 0;">Nossa página está sendo aprimorada para oferecer um atendimento ainda melhor. Em breve você encontrará aqui tudo que precisa para alugar sua caçamba de forma rápida e fácil.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divisor">
+
+  <section class="section" id="como-funciona">
+    <h2 class="section-titulo">Como <em>funciona</em></h2>
+    <p class="section-sub">Simples e rápido — do jeito que obra precisa.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Escolha sua cidade</h3>
+        <p>Selecione a cidade onde a caçamba será entregue.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Ligue direto</h3>
+        <p>Um número local aparece na tela. Ligue e fale com quem atende sua região.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Combine a entrega</h3>
+        <p>Acerte prazo, tamanho da caçamba e valor na hora, pelo telefone.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3>Caçamba na porta</h3>
+        <p>A empresa parceira da sua cidade entrega no endereço combinado.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divisor">
+
+  <section class="section" id="cidades">
+    <h2 class="section-titulo">Cidades <em>atendidas</em></h2>
+    <p class="section-sub">Cobertura em expansão pelo Brasil.</p>
+    <div class="cidades-grid">
+      <a href="angra-dos-reis.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Angra dos Reis — RJ</span>
+      </a>
+      <a href="aperibe.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Aperibé — RJ</span>
+      </a>
+      <a href="araruama.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Araruama — RJ</span>
+      </a>
+      <a href="areal.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Areal — RJ</span>
+      </a>
+      <a href="armacao-dos-buzios.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Armação dos Búzios — RJ</span>
+      </a>
+      <a href="arraial-do-cabo.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Arraial do Cabo — RJ</span>
+      </a>
+      <a href="barra-do-pirai.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Barra do Piraí — RJ</span>
+      </a>
+      <a href="barra-mansa.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Barra Mansa — RJ</span>
+      </a>
+      <a href="belford-roxo.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Belford Roxo — RJ</span>
+      </a>
+      <a href="bom-jardim.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Bom Jardim — RJ</span>
+      </a>
+      <a href="bom-jesus-do-itabapoana.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Bom Jesus do Itabapoana — RJ</span>
+      </a>
+      <a href="cabo-frio.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Cabo Frio — RJ</span>
+      </a>
+      <a href="cachoeiras-de-macacu.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Cachoeiras de Macacu — RJ</span>
+      </a>
+      <a href="cambuci.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Cambuci — RJ</span>
+      </a>
+      <a href="campos-dos-goytacazes.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Campos dos Goytacazes — RJ</span>
+      </a>
+      <a href="cantagalo.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Cantagalo — RJ</span>
+      </a>
+      <a href="carapebus.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Carapebus — RJ</span>
+      </a>
+      <a href="cardoso-moreira.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Cardoso Moreira — RJ</span>
+      </a>
+      <a href="carmo.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Carmo — RJ</span>
+      </a>
+      <a href="casimiro-de-abreu.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Casimiro de Abreu — RJ</span>
+      </a>
+      <a href="comendador-levy-gasparian.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Comendador Levy Gasparian — RJ</span>
+      </a>
+      <a href="conceicao-de-macabu.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Conceição de Macabu — RJ</span>
+      </a>
+      <a href="cordeiro.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Cordeiro — RJ</span>
+      </a>
+      <a href="duas-barras.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Duas Barras — RJ</span>
+      </a>
+      <a href="duque-de-caxias.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Duque de Caxias — RJ</span>
+      </a>
+      <a href="engenheiro-paulo-de-frontin.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Engenheiro Paulo de Frontin — RJ</span>
+      </a>
+      <a href="guapimirim.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Guapimirim — RJ</span>
+      </a>
+      <a href="iguaba-grande.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Iguaba Grande — RJ</span>
+      </a>
+      <a href="itaborai.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Itaboraí — RJ</span>
+      </a>
+      <a href="itaguai.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Itaguaí — RJ</span>
+      </a>
+      <a href="italva.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Italva — RJ</span>
+      </a>
+      <a href="itaocara.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Itaocara — RJ</span>
+      </a>
+      <a href="itaperuna.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Itaperuna — RJ</span>
+      </a>
+      <a href="itatiaia.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Itatiaia — RJ</span>
+      </a>
+      <a href="japeri.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Japeri — RJ</span>
+      </a>
+      <a href="laje-do-muriae.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Laje do Muriaé — RJ</span>
+      </a>
+      <a href="macae.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Macaé — RJ</span>
+      </a>
+      <a href="macuco.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Macuco — RJ</span>
+      </a>
+      <a href="mage.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Magé — RJ</span>
+      </a>
+      <a href="mangaratiba.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Mangaratiba — RJ</span>
+      </a>
+      <a href="marica.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Maricá — RJ</span>
+      </a>
+      <a href="mendes.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Mendes — RJ</span>
+      </a>
+      <a href="mesquita.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Mesquita — RJ</span>
+      </a>
+      <a href="miguel-pereira.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Miguel Pereira — RJ</span>
+      </a>
+      <a href="miracema.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Miracema — RJ</span>
+      </a>
+      <a href="natividade.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Natividade — RJ</span>
+      </a>
+      <a href="nilopolis.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Nilópolis — RJ</span>
+      </a>
+      <a href="niteroi.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Niterói — RJ</span>
+      </a>
+      <a href="nova-friburgo.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Nova Friburgo — RJ</span>
+      </a>
+      <a href="nova-iguacu.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Nova Iguaçu — RJ</span>
+      </a>
+      <a href="paracambi.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Paracambi — RJ</span>
+      </a>
+      <a href="paraiba-do-sul.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Paraíba do Sul — RJ</span>
+      </a>
+      <a href="paraty.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Paraty — RJ</span>
+      </a>
+      <a href="paty-do-alferes.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Paty do Alferes — RJ</span>
+      </a>
+      <a href="petropolis.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Petrópolis — RJ</span>
+      </a>
+      <a href="pinheiral.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Pinheiral — RJ</span>
+      </a>
+      <a href="pirai.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Piraí — RJ</span>
+      </a>
+      <a href="porciuncula.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Porciúncula — RJ</span>
+      </a>
+      <a href="porto-real.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Porto Real — RJ</span>
+      </a>
+      <a href="quatis.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Quatis — RJ</span>
+      </a>
+      <a href="queimados.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Queimados — RJ</span>
+      </a>
+      <a href="quissama.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Quissamã — RJ</span>
+      </a>
+      <a href="resende.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Resende — RJ</span>
+      </a>
+      <a href="rio-bonito.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Rio Bonito — RJ</span>
+      </a>
+      <a href="rio-claro.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Rio Claro — RJ</span>
+      </a>
+      <a href="rio-das-flores.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Rio das Flores — RJ</span>
+      </a>
+      <a href="rio-das-ostras.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Rio das Ostras — RJ</span>
+      </a>
+      <a href="rio-de-janeiro.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Rio de Janeiro — RJ</span>
+      </a>
+      <a href="santa-maria-madalena.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Santa Maria Madalena — RJ</span>
+      </a>
+      <a href="santo-antonio-de-padua.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Santo Antônio de Pádua — RJ</span>
+      </a>
+      <a href="sao-francisco-de-itabapoana.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>São Francisco de Itabapoana — RJ</span>
+      </a>
+      <a href="sao-goncalo.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>São Gonçalo — RJ</span>
+      </a>
+      <a href="sao-joao-de-meriti.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>São João de Meriti — RJ</span>
+      </a>
+      <a href="sao-jose-de-uba.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>São José de Ubá — RJ</span>
+      </a>
+      <a href="sao-jose-do-vale-do-rio-preto.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>São José do Vale do Rio Preto — RJ</span>
+      </a>
+      <a href="sao-pedro-da-aldeia.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>São Pedro da Aldeia — RJ</span>
+      </a>
+      <a href="sao-sebastiao-do-alto.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>São Sebastião do Alto — RJ</span>
+      </a>
+      <a href="sapucaia.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Sapucaia — RJ</span>
+      </a>
+      <a href="saquarema.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Saquarema — RJ</span>
+      </a>
+      <a href="seropedica.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Seropédica — RJ</span>
+      </a>
+      <a href="silva-jardim.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Silva Jardim — RJ</span>
+      </a>
+      <a href="sumidouro.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Sumidouro — RJ</span>
+      </a>
+      <a href="tangua.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Tanguá — RJ</span>
+      </a>
+      <a href="teresopolis.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Teresópolis — RJ</span>
+      </a>
+      <a href="tres-rios.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Três Rios — RJ</span>
+      </a>
+      <a href="valenca.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Valença — RJ</span>
+      </a>
+      <a href="varre-sai.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Varre-Sai — RJ</span>
+      </a>
+      <a href="vassouras.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Vassouras — RJ</span>
+      </a>
+      <a href="volta-redonda.html" class="cidade-card">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span>Volta Redonda — RJ</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 <strong>CaçambaRápida</strong> &mdash; Aluguel de caçamba de entulho em todo o Brasil.</p>
+  <p style="margin-top:0.4rem">Este site conecta você à empresa de caçamba da sua cidade.</p>
+</footer>
+
+<script>
+    const telefones = {
+    'angra-dos-reis': true,
+    'aperibe': true,
+    'araruama': true,
+    'areal': true,
+    'armacao-dos-buzios': true,
+    'arraial-do-cabo': true,
+    'barra-do-pirai': true,
+    'barra-mansa': true,
+    'belford-roxo': true,
+    'bom-jardim': true,
+    'bom-jesus-do-itabapoana': true,
+    'cabo-frio': true,
+    'cachoeiras-de-macacu': true,
+    'cambuci': true,
+    'campos-dos-goytacazes': true,
+    'cantagalo': true,
+    'carapebus': true,
+    'cardoso-moreira': true,
+    'carmo': true,
+    'casimiro-de-abreu': true,
+    'comendador-levy-gasparian': true,
+    'conceicao-de-macabu': true,
+    'cordeiro': true,
+    'duas-barras': true,
+    'duque-de-caxias': true,
+    'engenheiro-paulo-de-frontin': true,
+    'guapimirim': true,
+    'iguaba-grande': true,
+    'itaborai': true,
+    'itaguai': true,
+    'italva': true,
+    'itaocara': true,
+    'itaperuna': true,
+    'itatiaia': true,
+    'japeri': true,
+    'laje-do-muriae': true,
+    'macae': true,
+    'macuco': true,
+    'mage': true,
+    'mangaratiba': true,
+    'marica': true,
+    'mendes': true,
+    'mesquita': true,
+    'miguel-pereira': true,
+    'miracema': true,
+    'natividade': true,
+    'nilopolis': true,
+    'niteroi': true,
+    'nova-friburgo': true,
+    'nova-iguacu': true,
+    'paracambi': true,
+    'paraiba-do-sul': true,
+    'paraty': true,
+    'paty-do-alferes': true,
+    'petropolis': true,
+    'pinheiral': true,
+    'pirai': true,
+    'porciuncula': true,
+    'porto-real': true,
+    'quatis': true,
+    'queimados': true,
+    'quissama': true,
+    'resende': true,
+    'rio-bonito': true,
+    'rio-claro': true,
+    'rio-das-flores': true,
+    'rio-das-ostras': true,
+    'rio-de-janeiro': true,
+    'santa-maria-madalena': true,
+    'santo-antonio-de-padua': true,
+    'sao-francisco-de-itabapoana': true,
+    'sao-goncalo': true,
+    'sao-joao-de-meriti': true,
+    'sao-jose-de-uba': true,
+    'sao-jose-do-vale-do-rio-preto': true,
+    'sao-pedro-da-aldeia': true,
+    'sao-sebastiao-do-alto': true,
+    'sapucaia': true,
+    'saquarema': true,
+    'seropedica': true,
+    'silva-jardim': true,
+    'sumidouro': true,
+    'tangua': true,
+    'teresopolis': true,
+    'tres-rios': true,
+    'valenca': true,
+    'varre-sai': true,
+    'vassouras': true,
+    'volta-redonda': true,
+  };
+
+  let cidadeAtual = '';
+
+  function mostrarTelefone() {
+    const sel = document.getElementById('cidade-select').value;
+    const resultado = document.getElementById('resultado');
+    const link = document.getElementById('link-telefone');
+    const btn = document.getElementById('btn-revelar');
+    const msg = document.getElementById('msg-agradecimento');
+
+    cidadeAtual = sel;
+
+    if (sel && telefones[sel]) {
+      link.style.display = 'none';
+      btn.style.display = 'flex';
+      msg.style.display = 'none';
+      resultado.classList.add('visivel');
+    } else {
+      resultado.classList.remove('visivel');
+    }
+  }
+
+  function revelarTelefone() {
+    if (!cidadeAtual) return;
+
+    // Registra o clique no localStorage
+    const chave = 'cliques_' + cidadeAtual;
+    const atual = parseInt(localStorage.getItem(chave) || '0');
+    localStorage.setItem(chave, atual + 1);
+
+    // Registra timestamp do último clique
+    const log = JSON.parse(localStorage.getItem('log_cliques') || '[]');
+    log.push({ cidade: cidadeAtual, data: new Date().toISOString() });
+    localStorage.setItem('log_cliques', JSON.stringify(log));
+
+    // Esconde botão e mostra só a mensagem
+    const btn = document.getElementById('btn-revelar');
+    const msg = document.getElementById('msg-agradecimento');
+
+    btn.style.display = 'none';
+    msg.style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
